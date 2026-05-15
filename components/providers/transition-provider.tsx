@@ -9,6 +9,12 @@ export default function TransitionProvider({ children }: { children: React.React
   const svgRef = useRef<SVGSVGElement>(null);
   const pathsRef = useRef<SVGPathElement[]>([]);
   const pathname = usePathname();
+  const isFirstMount = useRef(true);
+
+  useEffect(() => {
+    isFirstMount.current = false;
+  }, []);
+
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -52,7 +58,12 @@ export default function TransitionProvider({ children }: { children: React.React
         return () => tween.kill();
       }}
       enter={(next) => {
+        if (isFirstMount.current) {
+          next();
+          return;
+        }
         const tween = gsap.timeline({ onComplete: next });
+
 
         if (pathsRef.current.length > 0) {
           pathsRef.current.forEach((path) => {

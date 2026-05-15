@@ -8,7 +8,15 @@
   --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
   --transition-stroke-1: #d8d9d7;
   --transition-stroke-2: #FF7A1A;
+  
+  /* Preloader Variables */
+  --base-100: #F3F0EA;
+  --base-300: #888888;
+  --base-350: rgba(243, 240, 234, 0.2);
+  --base-400: #F3F0EA;
+  --base-500: #0E0E0E;
 }
+
 
 .transition-svg {
   position: fixed;

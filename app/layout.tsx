@@ -23,7 +23,8 @@ export const metadata: Metadata = {
   description: "We help funded startups ship iconic brands, conversion-ready sites, and investor-proof decks.",
 };
 
-import TransitionProvider from "@/components/providers/transition-provider";
+import Preloader from "@/components/Preloader";
+import { ReactLenis } from "lenis/react";
 
 export default function RootLayout({
   children,
@@ -37,9 +38,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
-        <TransitionProvider>
-          {children}
-        </TransitionProvider>
+        <ReactLenis root>
+          <Preloader />
+          <main className="main-content">
+            {children}
+          </main>
+        </ReactLenis>
+
       </body>
     </html>
   );
