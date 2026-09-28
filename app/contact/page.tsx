@@ -100,35 +100,35 @@ export default function EditorialContactPage() {
         <div className="w-full mt-32 flex flex-col border-t border-[#111111]/20">
           
           {/* Row 1: Last name */}
-          <div className="w-full border-b border-[#111111]/20 flex">
-            <div className="w-full md:w-1/2"></div>
-            <div className="w-full md:w-1/2">
+          <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row">
+            <div className="hidden md:block w-full md:w-1/2"></div>
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
               <input 
                 type="text" 
                 placeholder="Last name" 
-                className="w-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+                className="w-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
           </div>
 
           {/* Row 2: DO YOU HAVE / First name */}
-          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+          <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row items-stretch">
             <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
               <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
                 DO YOU HAVE
               </h2>
             </div>
-            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
               <input 
                 type="text" 
                 placeholder="First name" 
-                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+                className="w-full h-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
           </div>
 
           {/* Row 3: A [image] / Email */}
-          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+          <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row items-stretch">
             <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
               <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase flex items-center whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
                 A 
@@ -137,55 +137,55 @@ export default function EditorialContactPage() {
                 </div>
               </h2>
             </div>
-            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
               <input 
                 type="email" 
                 placeholder="Email" 
-                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+                className="w-full h-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
           </div>
 
           {/* Row 4: QUESTION ? / Subject */}
-          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+          <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row items-stretch">
             <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
               <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
                 QUESTION ?
               </h2>
             </div>
-            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
               <input 
                 type="text" 
                 placeholder="Subject" 
-                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+                className="w-full h-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
           </div>
 
           {/* Mobile Text (Visible only on mobile) */}
-          <div className="flex md:hidden w-full p-8 border-b border-[#111111]/20">
-            <h2 className="text-[12vw] font-black leading-[0.85] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
+          <div className="flex md:hidden w-full py-12 px-8 border-b border-[#111111]/20 bg-[#f9f9f9]">
+            <h2 className="text-[12vw] font-black leading-[0.95] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
               DO YOU HAVE<br/>A QUESTION ?
             </h2>
           </div>
 
           {/* Row 5: Message */}
-          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+          <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row items-stretch">
             <div className="hidden md:block w-1/2"></div>
-            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
               <textarea 
                 placeholder="Message" 
                 rows={3}
-                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 resize-none focus:bg-[#f9f9f9] transition-colors" 
+                className="w-full h-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 resize-none focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
           </div>
 
           {/* Row 6: SEND */}
-          <div className="w-full flex">
+          <div className="w-full flex flex-col md:flex-row">
             <div className="hidden md:block w-1/2"></div>
-            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
-              <button className="w-full text-left py-10 px-8 text-sm md:text-base font-bold tracking-[0.2em] uppercase hover:bg-[#111111] hover:text-white transition-colors">
+            <div className="w-full md:w-1/2 md:border-l border-[#111111]/10">
+              <button className="w-full text-left py-6 md:py-10 px-8 text-sm md:text-base font-bold tracking-[0.2em] uppercase hover:bg-[#111111] hover:text-white transition-colors">
                 SEND
               </button>
             </div>
