@@ -173,10 +173,6 @@ export default function EditorialGridReverse() {
                   >
                     Anjum Mujawar
                   </div>
-
-                  <div className="text-sm text-white/60">
-                    Developer
-                  </div>
                 </div>
               </div>
 

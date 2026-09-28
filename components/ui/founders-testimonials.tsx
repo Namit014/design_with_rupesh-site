@@ -193,10 +193,6 @@ export default function SemiCircularCardAnimation() {
                   <div className="text-[18px] font-semibold">
                     {item.name}
                   </div>
-
-                  <div className="text-[14px] opacity-60">
-                    {item.role}
-                  </div>
                 </div>
               </div>
             </div>
