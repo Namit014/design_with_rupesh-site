@@ -258,7 +258,7 @@ export default function LandingPage() {
       <EditorialThreeCardGrid />
 
       {/* TOP LARGE SHOWCASE CARD */}
-      <ProjectShowcaseCard image="/image copy.png" />
+      <ProjectShowcaseCard image="/image copy.png" title="LABS.YANTRAA.TECH" />
 
       {/* REVERSED EDITORIAL GRID */}
       <EditorialGridReverse />

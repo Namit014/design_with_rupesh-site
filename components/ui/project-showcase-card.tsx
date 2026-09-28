@@ -21,12 +21,12 @@ export default function ProjectShowcaseCard({
   href = "#",
 }: ProjectShowcaseCardProps) {
   return (
-    <section className="project-showcase-wrapper w-full px-8 pb-10 pt-0">
+    <section className="project-showcase-wrapper w-full px-4 md:px-8 pb-10 pt-0">
       <Link href={href} className="block w-full group/link">
         {/* Header Above Card */}
         <div className="flex w-full max-w-[1180px] mx-auto items-end justify-between pb-4">
           <div className="flex items-baseline gap-4">
-            <h3 className="uppercase text-[#111111] text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
+            <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
               {title}
             </h3>
             <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
