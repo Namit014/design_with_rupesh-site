@@ -43,28 +43,28 @@ const FloatingNav = () => (
 const PROJECTS = [
   {
     title: "YANTRAA.TECH",
-    year: "TECH 2024",
+    year: "TECH 2026",
     image: "/image copy 2.png",
     href: "https://yantraa.tech",
     cta: "DISCOVER CASE",
   },
   {
     title: "CONEKT.DESIGN",
-    year: "DESIGN 2024",
+    year: "DESIGN 2026",
     image: "/image copy 3.png",
     href: "https://conekt.design",
     cta: "VISIT SITE",
   },
   {
     title: "GENH HARYANA GOV",
-    year: "GOV TECH 2024",
+    year: "GOV TECH 2026",
     image: "/image copy 6.png",
     href: "https://genhfounders.com/#masterclass",
     cta: "DISCOVER CASE",
   },
   {
     title: "DEADLOCK",
-    year: "STUDIO 2024",
+    year: "STUDIO 2026",
     image: "/ChatGPT Image Sep 27, 2026, 10_08_28 PM.png",
     href: "https://studio.therebirth.tech",
     cta: "VISIT SITE",
