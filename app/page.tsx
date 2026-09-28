@@ -23,7 +23,7 @@ const Logo = ({ hidden }: { hidden?: boolean }) => (
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className={`fixed top-[28px] left-[20px] md:left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
+    className={`absolute md:fixed top-[28px] left-[20px] md:left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
   >
     <div className="text-[20px] md:text-[26px] font-black leading-[1] tracking-tight text-[#171412]">The Rebirth<br />Company</div>
   </motion.div>
