@@ -23,7 +23,7 @@ export default function EditorialGridReverse() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
-            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black cursor-pointer h-full min-h-[300px]"
+            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black cursor-pointer aspect-square md:aspect-[4/5] lg:aspect-auto lg:h-full min-h-[400px] lg:min-h-0"
           >
             {/* IMAGE */}
             <div className="absolute inset-0 h-full overflow-hidden">
