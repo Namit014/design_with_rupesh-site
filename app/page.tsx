@@ -232,8 +232,8 @@ export default function LandingPage() {
             variants={item}
             className="mt-[60px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.3] md:leading-[1.1] tracking-tight md:tracking-[-1px] text-[#171412] max-w-[780px]"
           >
-            We help startups to ship iconic<br className="hidden md:block" />
-            web apps, conversion-ready sites, and<br className="hidden md:block" />
+            We help startups to ship iconic <br className="hidden md:block" />
+              web apps, conversion-ready sites, and<br className="hidden md:block" />
             blazing-fast software.
           </motion.p>
 
