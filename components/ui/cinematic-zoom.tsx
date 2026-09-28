@@ -97,9 +97,20 @@ export default function CinematicZoom() {
             ref={immersiveFrameRef}
             className="cinematic-zoom-frame relative overflow-hidden bg-black will-change-transform transform-gpu"
           >
+            {/* Desktop Video */}
             <video
               src="/THE REBIRTH COMPANY.mp4"
-              className="absolute inset-0 h-full w-full object-cover max-md:object-contain pointer-events-none will-change-transform transform-gpu"
+              className="hidden md:block absolute inset-0 h-full w-full object-cover pointer-events-none will-change-transform transform-gpu"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            />
+            {/* Mobile Video */}
+            <video
+              src="/hero-mobile.mp4"
+              className="block md:hidden absolute inset-0 h-full w-full object-cover pointer-events-none will-change-transform transform-gpu"
               autoPlay
               loop
               muted
