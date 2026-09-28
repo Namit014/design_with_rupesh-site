@@ -9,12 +9,12 @@ export default function EditorialThreeCardGrid() {
         {/* LEFT COLUMN */}
         <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
           {/* TOP CARD */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-baseline gap-2 pl-2">
-              <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-baseline gap-4">
+              <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
                 MODERN IDENTITY
               </h3>
-              <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+              <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
                 B2C APP 2024
               </span>
             </div>
@@ -110,12 +110,12 @@ export default function EditorialThreeCardGrid() {
         </div>
 
         {/* RIGHT CARD */}
-        <div className="col-span-12 lg:col-span-6 flex flex-col gap-2">
-          <div className="flex items-baseline gap-2 pl-2">
-            <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+        <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
+          <div className="flex items-baseline gap-4">
+            <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
               MODERN ECOM
             </h3>
-            <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+            <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
               E-COMMERCE 2026
             </span>
           </div>

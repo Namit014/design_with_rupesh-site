@@ -8,12 +8,12 @@ export default function EditorialGridReverse() {
       <div className="editorial-grid-layout mx-auto grid max-w-[1180px] grid-cols-12 gap-4">
 
         {/* LEFT CARD (Large Image) - Swapped from Right */}
-        <div className="col-span-12 flex flex-col gap-2 lg:col-span-6">
-          <div className="flex items-baseline gap-2 pl-2">
-            <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+        <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
+          <div className="flex items-baseline gap-4">
+            <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
               GENH SITE
             </h3>
-            <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+            <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
               GOV TECH 2026
             </span>
           </div>
@@ -41,12 +41,12 @@ export default function EditorialGridReverse() {
         {/* RIGHT COLUMN (Two Split Cards) - Swapped from Left */}
         <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
           {/* TOP CARD */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-baseline gap-2 pl-2">
-              <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-baseline gap-4">
+              <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
                 DEADLOCK STUDIO
               </h3>
-              <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+              <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
                 STUDIO 2026
               </span>
             </div>
