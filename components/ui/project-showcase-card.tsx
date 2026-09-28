@@ -28,14 +28,14 @@ export default function ProjectShowcaseCard({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
-        className="project-showcase-card group relative mx-auto aspect-[1000/540] w-full max-w-[1180px] overflow-hidden rounded-[28px] bg-black"
+        className="project-showcase-card group relative mx-auto w-full max-w-[1180px] overflow-hidden rounded-[28px] bg-black"
       >
         {/* MEDIA */}
-        <div className="project-showcase-media absolute inset-0 overflow-hidden">
+        <div className="project-showcase-media relative w-full h-auto overflow-hidden">
           {video ? (
             <video
               src={video}
-              className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+              className="w-full h-auto object-cover pointer-events-none"
               autoPlay
               loop
               muted
@@ -45,7 +45,7 @@ export default function ProjectShowcaseCard({
             <motion.img
               src={image}
               alt=""
-              className="h-full w-full object-cover"
+              className="w-full h-auto object-cover"
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             />

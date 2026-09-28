@@ -58,7 +58,7 @@ const PROJECTS = [
   {
     title: "GENH HARYANA GOV",
     year: "GOV TECH 2024",
-    image: "/image copy 4.png",
+    image: "/image copy 6.png",
     href: "https://genhfounders.com/#masterclass",
     cta: "DISCOVER CASE",
   },
