@@ -24,10 +24,10 @@ export default function CinematicZoom() {
 
         // Set initial state
         gsap.set(immersiveFrameRef.current, {
-          scale: isDesktop ? 0.72 : 0.9,
+          scale: isDesktop ? 0.72 : 1,
           borderRadius: isDesktop ? "28px" : "16px",
           width: isDesktop ? "78vw" : "90vw",
-          height: isDesktop ? "72vh" : "56vw", // horizontal aspect on mobile
+          height: isDesktop ? "72vh" : "80vh", // vertical on mobile
         });
 
         const tl = gsap.timeline({
@@ -45,7 +45,7 @@ export default function CinematicZoom() {
         tl.to(immersiveFrameRef.current, {
           scale: 1,
           width: "100vw",
-          height: isDesktop ? "100vh" : "56vw", // stays horizontal on mobile
+          height: isDesktop ? "100vh" : "100vh", // vertical fullscreen
           borderRadius: isDesktop ? "28px" : "0px", 
           ease: "power2.out",
           duration: 1,
