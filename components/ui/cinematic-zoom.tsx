@@ -13,59 +13,65 @@ export default function CinematicZoom() {
   const immersiveBgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
-
     const ctx = gsap.context(() => {
-      // Set initial state
-      gsap.set(immersiveFrameRef.current, {
-        scale: 0.72,
-        borderRadius: "28px",
-        width: "78vw",
-        height: "72vh",
+      let mm = gsap.matchMedia();
+
+      mm.add({
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767px)"
+      }, (context) => {
+        let { isDesktop, isMobile } = context.conditions as any;
+
+        // Set initial state
+        gsap.set(immersiveFrameRef.current, {
+          scale: isDesktop ? 0.72 : 0.9,
+          borderRadius: isDesktop ? "28px" : "16px",
+          width: isDesktop ? "78vw" : "90vw",
+          height: isDesktop ? "72vh" : "56vw", // horizontal aspect on mobile
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: immersiveSectionRef.current,
+            start: "top top",
+            end: "+=2600",
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+          },
+        });
+
+        // Cinematic Zoom Animation
+        tl.to(immersiveFrameRef.current, {
+          scale: 1,
+          width: "100vw",
+          height: isDesktop ? "100vh" : "56vw", // stays horizontal on mobile
+          borderRadius: isDesktop ? "28px" : "0px", 
+          ease: "power2.out",
+          duration: 1,
+        });
+
+        // Background transition: White -> #171412 -> White
+        tl.to(
+          immersiveBgRef.current,
+          {
+            backgroundColor: "#171412",
+            duration: 0.1,
+            ease: "power1.inOut",
+          },
+          0.05
+        );
+
+        tl.to(
+          immersiveBgRef.current,
+          {
+            backgroundColor: "#F3F0EA",
+            duration: 0.15,
+            ease: "power1.inOut",
+          },
+          0.6
+        );
       });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: immersiveSectionRef.current,
-          start: "top top",
-          end: "+=2600",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
-
-      // Cinematic Zoom Animation
-      // Keep corners rounded even in fullscreen as requested
-      tl.to(immersiveFrameRef.current, {
-        scale: 1,
-        width: "100vw",
-        height: "100vh",
-        borderRadius: "28px", 
-        ease: "power2.out",
-        duration: 1,
-      });
-
-      // Background transition: White -> #171412 -> White
-      tl.to(
-        immersiveBgRef.current,
-        {
-          backgroundColor: "#171412",
-          duration: 0.1,
-          ease: "power1.inOut",
-        },
-        0.05
-      );
-
-      tl.to(
-        immersiveBgRef.current,
-        {
-          backgroundColor: "#F3F0EA",
-          duration: 0.15,
-          ease: "power1.inOut",
-        },
-        0.6
-      );
     });
 
     return () => {
