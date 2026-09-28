@@ -156,6 +156,17 @@ export default function LandingPage() {
   const servicesRef = useRef(null);
   const isServicesInView = useInView(servicesRef, { margin: "-35% 0px -35% 0px" });
 
+  const testimonialsRef = useRef(null);
+  const isTestimonialsInView = useInView(testimonialsRef, { margin: "-35% 0px -35% 0px" });
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -175,11 +186,11 @@ export default function LandingPage() {
   return (
     <div className="relative w-full bg-[#F3F0EA] selection:bg-accent selection:text-white overflow-x-hidden">
       {/* UI Elements */}
-      <Logo hidden={isServicesInView} />
-      <TopRightButton hidden={isServicesInView} />
-      <FloatingNav hidden={isServicesInView} />
-      <ScrollIndicator hidden={isServicesInView} />
-      <Footer hidden={isServicesInView} />
+      <Logo hidden={isServicesInView || (isMobile && isTestimonialsInView)} />
+      <TopRightButton hidden={isServicesInView || (isMobile && isTestimonialsInView)} />
+      <FloatingNav hidden={isServicesInView || (isMobile && isTestimonialsInView)} />
+      <ScrollIndicator hidden={isServicesInView || (isMobile && isTestimonialsInView)} />
+      <Footer hidden={isServicesInView || (isMobile && isTestimonialsInView)} />
       {/* <FloatingDiscoveryPill /> */}
 
       {/* Hero Section */}
@@ -269,7 +280,9 @@ export default function LandingPage() {
 
       {/* <CardFlow /> */}
 
-      <FoundersTestimonials />
+      <div ref={testimonialsRef}>
+        <FoundersTestimonials />
+      </div>
 
       {/* Premium CTA Section */}
       <BoldCtaSection />
