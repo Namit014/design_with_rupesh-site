@@ -84,43 +84,46 @@ export default function SemiCircularCardAnimation() {
   };
 
   useEffect(() => {
-
-
-    const cards = gsap.utils.toArray<HTMLElement>(".orbit-card");
-
-    cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          opacity: 0,
-          scale: 0.7,
-          rotation: 18,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1.8,
-          ease: "power4.out",
-          delay: index * 0.12,
-          motionPath: {
-            path: [
-              { x: 600, y: 240 },
-              { x: 320, y: -180 },
-              { x: 120, y: -40 },
-              { x: 0, y: 0 },
-            ],
-            curviness: 1.8,
-          },
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-          },
-        }
-      );
-    });
+    let ctx = gsap.context(() => {
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".orbit-card");
+        cards.forEach((card, index) => {
+          gsap.fromTo(
+            card,
+            {
+              opacity: 0,
+              scale: 0.7,
+              rotation: 18,
+            },
+            {
+              opacity: 1,
+              scale: 1,
+              rotation: 0,
+              duration: 1.8,
+              ease: "power4.out",
+              delay: index * 0.12,
+              motionPath: {
+                path: [
+                  { x: 600, y: 240 },
+                  { x: 320, y: -180 },
+                  { x: 120, y: -40 },
+                  { x: 0, y: 0 },
+                ],
+                curviness: 1.8,
+              },
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 70%",
+              },
+            }
+          );
+        });
+      });
+    }, sectionRef);
 
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
@@ -182,7 +185,7 @@ export default function SemiCircularCardAnimation() {
               key={item.id}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-full lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
+              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-full lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-none lg:shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
               style={{
                 backgroundColor: item.bg,
                 color: item.textColor,
