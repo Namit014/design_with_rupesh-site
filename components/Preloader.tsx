@@ -53,85 +53,59 @@ export default function Preloader() {
     gsap.set(".main-content", { opacity: 0 });
 
 
-    // 1. Digits Animation
-    const counts = document.querySelectorAll(".loader .count");
-    counts.forEach((count, index) => {
-      const digits = count.querySelectorAll(".digit h1");
-
-      tl.to(
-        digits,
-        {
-          y: "0%",
-          duration: 1,
-          stagger: 0.075,
-        },
-        index * 1
-      );
-
-      if (index < counts.length - 1) {
-        tl.to(
-          digits,
-          {
-            y: "-100%",
-            duration: 1,
-            stagger: 0.075,
-          },
-          index * 1 + 1
-        );
-      }
-    });
+    // Removed Digits Animation as requested
 
     // 2. Spinner & Word entrance
     tl.to(".loader .spinner", {
       opacity: 0,
-      duration: 0.3,
+      duration: 0.2,
     });
 
     tl.to(".loader .word h1", {
       y: "0%",
-      duration: 1,
+      duration: 0.6,
     }, "<");
 
     // 3. Divider entrance
     tl.to(".loader .divider", {
       scaleY: "100%",
-      duration: 1,
+      duration: 0.6,
       onComplete: () => {
-        gsap.to(".loader .divider", { opacity: 0, duration: 0.3, delay: 0.3 });
+        gsap.to(".loader .divider", { opacity: 0, duration: 0.2, delay: 0.2 });
       }
     });
 
     // 4. Word exit
     tl.to(".loader #word-1 h1", {
       y: "100%",
-      duration: 1,
-      delay: 0.3,
+      duration: 0.6,
+      delay: 0.1,
     });
 
     tl.to(".loader #word-2 h1", {
       y: "-100%",
-      duration: 1,
+      duration: 0.6,
     }, "<");
 
     // 5. Final exit Swipe Up + Site Fade In
     tl.to(".loader", {
       yPercent: -100,
-      duration: 1.5,
+      duration: 0.8,
       ease: "power4.inOut",
       onStart: () => {
         gsap.to(".main-content", {
           opacity: 1,
-          duration: 1.5,
+          duration: 0.8,
           ease: "power4.out",
         });
-        gsap.to(".hero-img", { scale: 1, duration: 2, ease: "power4.out" });
+        gsap.to(".hero-img", { scale: 1, duration: 1, ease: "power4.out" });
       },
       onComplete: () => {
         gsap.set(".loader", { pointerEvents: "none" });
         setLoaderAnimating(false);
         setShowPreloader(false);
       }
-    }, "+=0.5");
+    }, "+=0.2");
 
 
 
@@ -157,17 +131,7 @@ export default function Preloader() {
 
       <div className="divider"></div>
 
-      <div className="counter">
-        <div className="count">
-          <div className="digit"><h1>2</h1></div>
-          <div className="digit"><h1>0</h1></div>
-          <div className="digit"><h1>2</h1></div>
-          <div className="digit"><h1>6</h1></div>
-        </div>
-        <div className="count" style={{ position: 'absolute', opacity: 0 }}>
-           {/* You can add more counts here to match the staggered logic */}
-        </div>
-      </div>
+      {/* Removed counter */}
 
       <div className="spinner-container">
         <div className="spinner"></div>
