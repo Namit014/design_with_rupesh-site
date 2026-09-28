@@ -50,7 +50,7 @@ export default function EditorialContactPage() {
       <div className="pt-32 md:pt-48 pb-20 max-w-[1800px] mx-auto w-full relative">
         
         {/* Top Header Section */}
-        <div className="px-8 md:px-24 lg:px-32 flex flex-col mb-20 md:mb-32 pr-[350px]">
+        <div className="px-8 md:px-24 lg:px-32 flex flex-col mb-20 md:mb-32 md:pr-[350px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,6 +99,13 @@ export default function EditorialContactPage() {
         {/* Bottom Form Section */}
         <div className="w-full mt-32 flex flex-col border-t border-[#111111]/20">
           
+          {/* Mobile Text (Visible only on mobile) */}
+          <div className="flex md:hidden w-full py-12 px-8 border-b border-[#111111]/20 bg-[#f9f9f9]">
+            <h2 className="text-[12vw] font-black leading-[0.95] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
+              DO YOU HAVE<br/>A QUESTION ?
+            </h2>
+          </div>
+
           {/* Row 1: Last name */}
           <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row">
             <div className="hidden md:block w-full md:w-1/2"></div>
@@ -160,13 +167,6 @@ export default function EditorialContactPage() {
                 className="w-full h-full bg-transparent py-6 md:py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
               />
             </div>
-          </div>
-
-          {/* Mobile Text (Visible only on mobile) */}
-          <div className="flex md:hidden w-full py-12 px-8 border-b border-[#111111]/20 bg-[#f9f9f9]">
-            <h2 className="text-[12vw] font-black leading-[0.95] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
-              DO YOU HAVE<br/>A QUESTION ?
-            </h2>
           </div>
 
           {/* Row 5: Message */}
