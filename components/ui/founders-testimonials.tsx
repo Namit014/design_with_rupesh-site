@@ -22,11 +22,11 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Priya",
-    role: "Founder @GoStan",
-    image: "https://i.pravatar.cc/150?u=priya",
+    name: "Tushar Pandey",
+    role: "CEO @Weekends Films",
+    image: "https://i.pravatar.cc/150?u=tushar",
     text:
-      "I had the chance to work with The Rebirth on web apps and APIs. Their strategic approach goes far beyond software.",
+      "We love the way The Rebirth made our brand come alive. Their strategic approach goes far beyond just design and software.",
     rotation: "7deg",
     bg: "#A09591",
     textColor: "#F8F3EA",
