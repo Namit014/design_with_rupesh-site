@@ -11,10 +11,9 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 const testimonials = [
   {
     id: 1,
-    name: "Elliot",
+    name: "Rohan",
     role: "CMO @Qonnect",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+    image: "https://i.pravatar.cc/150?u=rohan",
     text:
       "We worked together on backend and product software. Everything shipped fast and the collaboration was seamless.",
     rotation: "-6deg",
@@ -23,10 +22,9 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Alexis",
+    name: "Priya",
     role: "Founder @GoStan",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
+    image: "https://i.pravatar.cc/150?u=priya",
     text:
       "I had the chance to work with The Rebirth on web apps and APIs. Their strategic approach goes far beyond software.",
     rotation: "7deg",
@@ -35,10 +33,9 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Ali",
+    name: "Aditya",
     role: "CEO @PDF",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
+    image: "https://i.pravatar.cc/150?u=aditya",
     text:
       "The Rebirth helped us with refactoring and platform stability. The boost in perception was immediate.",
     rotation: "-5deg",
@@ -47,10 +44,9 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Julien",
+    name: "Sneha",
     role: "Founder @Sowbeez",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+    image: "https://i.pravatar.cc/150?u=sneha",
     text:
       "We faced a challenge with positioning and The Rebirth exceeded expectations with clarity and execution.",
     rotation: "6deg",
@@ -59,10 +55,9 @@ const testimonials = [
   },
   {
     id: 5,
-    name: "Eddy",
+    name: "Karthik",
     role: "Founder @Qonnect",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+    image: "https://i.pravatar.cc/150?u=karthik",
     text:
       "Amazing experience with The Rebirth. Professional, responsive, and technical. I couldn’t recommend them more.",
     rotation: "-4deg",

@@ -139,7 +139,7 @@ export default function EditorialGridReverse() {
                   letterSpacing: "2px",
                 }}
               >
-                Testimonial
+                Tech
               </div>
 
               <p
