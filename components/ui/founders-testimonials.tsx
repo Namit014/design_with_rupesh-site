@@ -68,7 +68,20 @@ const testimonials = [
 
 export default function SemiCircularCardAnimation() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.children[0].clientWidth;
+      const gap = 16; // gap-4 is 16px
+      const index = Math.round(scrollLeft / (cardWidth + gap));
+      setMobileActiveIndex(index);
+    }
+  };
 
   useEffect(() => {
 
@@ -130,6 +143,13 @@ export default function SemiCircularCardAnimation() {
         </div>
 
         <style>{`
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+          .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
           @media (min-width: 1024px) {
             ${testimonials.map((item, i) => `
               .orbit-card-${i} { 
@@ -151,13 +171,17 @@ export default function SemiCircularCardAnimation() {
           }
         `}</style>
         
-        <div className="cards-container relative flex lg:min-h-[640px] items-center justify-start lg:justify-center overflow-x-auto lg:overflow-visible gap-6 lg:gap-0 px-4 lg:px-0 py-12 lg:py-0 snap-x snap-mandatory pb-16">
+        <div 
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className="cards-container no-scrollbar relative flex lg:min-h-[640px] items-center justify-start lg:justify-center overflow-x-auto lg:overflow-visible gap-4 lg:gap-0 py-4 lg:py-0 snap-x snap-mandatory w-full"
+        >
           {testimonials.map((item, index) => (
             <div
               key={item.id}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-[300px] lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
+              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-full max-w-[400px] lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
               style={{
                 backgroundColor: item.bg,
                 color: item.textColor,
@@ -200,6 +224,27 @@ export default function SemiCircularCardAnimation() {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Mobile Pagination Numbers */}
+        <div className="mt-8 flex items-center justify-center gap-4 lg:hidden">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                if (scrollContainerRef.current) {
+                  const container = scrollContainerRef.current;
+                  const cardWidth = container.children[0].clientWidth;
+                  const gap = 16;
+                  container.scrollTo({ left: i * (cardWidth + gap), behavior: 'smooth' });
+                }
+              }}
+              className={`text-[16px] font-bold transition-colors ${mobileActiveIndex === i ? 'text-black' : 'text-black/20'}`}
+              style={{ fontFamily: "'Outfit', sans-serif" }}
+            >
+              0{i + 1}
+            </button>
           ))}
         </div>
       </div>
