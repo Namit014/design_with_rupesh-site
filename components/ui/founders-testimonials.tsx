@@ -120,7 +120,7 @@ export default function SemiCircularCardAnimation() {
       <div className="mx-auto max-w-[1300px]">
         <div className="mb-24 ml-5">
           <h2
-            className="text-[79px] font-black leading-[0.88] tracking-[-5px] text-[#171412] max-lg:text-[56px]"
+            className="text-[79px] font-black leading-[1] tracking-[-5px] text-[#171412] max-lg:text-[56px]"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             Trusted by
