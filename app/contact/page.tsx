@@ -58,7 +58,7 @@ export default function EditorialContactPage() {
           >
             <p className="uppercase text-sm font-bold tracking-widest mb-4">A Question ?</p>
             <h1 
-              className="text-[12vw] md:text-[8vw] font-black leading-[0.8] tracking-[-0.04em] uppercase" 
+              className="text-[12vw] md:text-[8vw] font-black leading-[0.8] tracking-[-0.04em] uppercase -ml-1 md:-ml-2 lg:-ml-3" 
               style={{ fontFamily: "Youth, sans-serif" }}
             >
               CONTACT US
@@ -66,10 +66,10 @@ export default function EditorialContactPage() {
             
             <div className="mt-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 text-[#111111]/70 font-medium tracking-wide">
               <a href="mailto:namit@therebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
-                <Mail size={16} /> namit@therebirth.tech
+                <Mail size={16} />namit@therebirth.tech
               </a>
               <a href="mailto:built@rebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
-                <Mail size={16} /> built@rebirth.tech
+                <Mail size={16} />built@rebirth.tech
               </a>
             </div>
 
