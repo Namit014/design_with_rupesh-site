@@ -206,7 +206,7 @@ export default function SemiCircularCardAnimation() {
                   </div>
                 </div>
 
-                <p className="text-[29px] leading-[1.05] tracking-[-1.6px] max-lg:text-[20px]">
+                <p className="text-[20px] lg:text-[29px] leading-[1.05] tracking-[-0.5px] lg:tracking-[-1.6px]">
                   {item.text}
                 </p>
               </div>

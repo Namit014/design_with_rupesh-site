@@ -53,7 +53,7 @@ export default function NavigationMenu() {
                       <Link 
                         key={item} 
                         href={item === 'Home' ? '/' : item === 'Work' ? '/showcase' : `/${item.toLowerCase()}`}
-                        className="text-[#999999] hover:text-[#E8E8E8] text-[72px] font-bold leading-[1.05] tracking-[-3px] transition-colors"
+                        className="text-[#999999] hover:text-[#E8E8E8] text-[48px] md:text-[72px] font-bold leading-[1.05] tracking-[-1px] md:tracking-[-3px] transition-colors"
                         style={{ fontFamily: 'Youth, Arial, sans-serif' }}
                         onClick={() => setIsOpen(false)}
                       >
