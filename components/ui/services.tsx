@@ -27,7 +27,7 @@ const projects = [
   },
 ];
 
-const scaleAnimation = {
+const scaleAnimation: any = {
   closed: {
     scale: 0,
     transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
