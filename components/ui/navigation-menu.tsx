@@ -7,6 +7,35 @@ import Link from 'next/link';
 export default function NavigationMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'main' | 'join' | 'privacy' | 'terms'>('main');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleJoinSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      type: 'Job Application',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      role: formData.get('role'),
+      url: formData.get('url'),
+      about: formData.get('about')
+    };
+
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      alert('Application saved locally to submissions.json!');
+      setActiveTab('main');
+    } catch (err) {
+      alert('Failed to submit application.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -101,14 +130,14 @@ export default function NavigationMenu() {
                     ← Back to Menu
                   </button>
                   <h2 className="text-white text-4xl font-bold mb-6 tracking-tight" style={{ fontFamily: 'Youth, sans-serif' }}>Join the team</h2>
-                  <form className="flex flex-col gap-4 flex-1 mt-2">
-                    <input type="text" placeholder="Full Name" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
-                    <input type="email" placeholder="Email Address" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
-                    <input type="text" placeholder="Desired Role" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
-                    <input type="url" placeholder="Portfolio / LinkedIn URL" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
-                    <textarea placeholder="Tell us about yourself..." rows={3} className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium resize-none" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}></textarea>
-                    <button type="button" className="mt-4 bg-white text-black font-bold uppercase tracking-[2px] text-[13px] rounded-xl py-4 hover:scale-[1.02] hover:bg-white/90 transition-all shadow-lg shadow-white/5">
-                      Submit Application
+                  <form className="flex flex-col gap-4 flex-1 mt-2" onSubmit={handleJoinSubmit}>
+                    <input name="name" type="text" required placeholder="Full Name" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input name="email" type="email" required placeholder="Email Address" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input name="role" type="text" required placeholder="Desired Role" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input name="url" type="url" placeholder="Portfolio / LinkedIn URL" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <textarea name="about" required placeholder="Tell us about yourself..." rows={3} className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium resize-none" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}></textarea>
+                    <button type="submit" disabled={isSubmitting} className="mt-4 bg-white text-black font-bold uppercase tracking-[2px] text-[13px] rounded-xl py-4 hover:scale-[1.02] hover:bg-white/90 transition-all shadow-lg shadow-white/5 disabled:opacity-50">
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
                     </button>
                   </form>
                 </motion.div>

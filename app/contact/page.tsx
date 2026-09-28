@@ -40,6 +40,34 @@ const FloatingNav = () => (
 
 export default function EditorialContactPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      type: 'Booking',
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      date: formData.get('date'),
+    };
+
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      alert('Booking saved locally to submissions.json!');
+      setIsModalOpen(false);
+    } catch (err) {
+      alert('Failed to submit booking.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-white text-[#111111] overflow-x-hidden selection:bg-[#111111] selection:text-white relative pl-0 md:pl-[120px]">
@@ -242,31 +270,39 @@ export default function EditorialContactPage() {
                   <Calendar size={16} /> Booking Details
                 </h4>
                 
-                <div className="flex flex-col gap-3 md:gap-4">
+                <form className="flex flex-col gap-3 md:gap-4" onSubmit={handleBookingSubmit}>
                   <input
+                    name="name"
                     type="text"
+                    required
                     placeholder="Full Name"
                     className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                   />
                   <input
+                    name="email"
                     type="email"
+                    required
                     placeholder="Email Address"
                     className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                   />
                   <input
+                    name="phone"
                     type="tel"
+                    required
                     placeholder="Phone Number"
                     className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                   />
                   <input
+                    name="date"
                     type="date"
+                    required
                     className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
                   />
-                </div>
 
-                <button className="mt-6 md:mt-10 w-full bg-[#171412] text-white py-3 md:py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10 shrink-0">
-                  Confirm Booking
-                </button>
+                  <button type="submit" disabled={isSubmitting} className="mt-6 md:mt-10 w-full bg-[#171412] text-white py-3 md:py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10 shrink-0 disabled:opacity-50">
+                    {isSubmitting ? 'Confirming...' : 'Confirm Booking'}
+                  </button>
+                </form>
               </div>
             </motion.div>
           </motion.div>
