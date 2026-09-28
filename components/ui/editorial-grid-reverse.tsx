@@ -45,9 +45,9 @@ export default function EditorialGridReverse() {
                   letterSpacing: "1px",
                 }}
               >
-                AI MODEL
+                GOV TECH
                 <br />
-                2024
+                2026
               </span>
             </div>
           </motion.div>
@@ -86,13 +86,13 @@ export default function EditorialGridReverse() {
                 <h3
                   style={{
                     fontFamily: "Youth, sans-serif",
-                    fontSize: "26px",
+                    fontSize: "22px",
                     lineHeight: 1,
                     letterSpacing: "-1px",
                     fontWeight: 900,
                   }}
                 >
-                  ZENLY
+                  DEADLOCK STUDIO
                 </h3>
 
                 <span
@@ -104,9 +104,9 @@ export default function EditorialGridReverse() {
                     letterSpacing: "1px",
                   }}
                 >
-                  SOCIAL
+                  STUDIO
                   <br />
-                  2023
+                  2026
                 </span>
               </div>
             </motion.div>
@@ -128,36 +128,38 @@ export default function EditorialGridReverse() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
-            className="editorial-card-testimonial relative overflow-hidden rounded-[28px] bg-[#E14D2A] p-10 cursor-pointer"
+            className="editorial-card-testimonial relative overflow-hidden rounded-[28px] bg-[#E14D2A] p-10 cursor-pointer flex-1 flex flex-col justify-between"
           >
-            <div
-              className="uppercase text-white/60"
-              style={{
-                fontFamily: "PP Neue Montreal, sans-serif",
-                fontSize: "13px",
-                letterSpacing: "2px",
-              }}
-            >
-              Testimonial
-            </div>
+            <div>
+              <div
+                className="uppercase text-white/60"
+                style={{
+                  fontFamily: "PP Neue Montreal, sans-serif",
+                  fontSize: "13px",
+                  letterSpacing: "2px",
+                }}
+              >
+                Testimonial
+              </div>
 
-            <p
-              className="mt-6 max-w-[540px] text-white"
-              style={{
-                fontFamily: "PP Neue Montreal, sans-serif",
-                fontSize: "28px",
-                lineHeight: "1.08",
-                letterSpacing: "-1.4px",
-              }}
-            >
-              The level of craftsmanship and attention to detail from the team exceeded our expectations. They didn't just design a site, they built a brand experience.
-            </p>
+              <p
+                className="mt-6 max-w-[540px] text-white"
+                style={{
+                  fontFamily: "PP Neue Montreal, sans-serif",
+                  fontSize: "26px",
+                  lineHeight: "1.08",
+                  letterSpacing: "-1.4px",
+                }}
+              >
+                Their modern web development skills are unmatched. The level of craftsmanship and attention to detail from the team exceeded our expectations.
+              </p>
+            </div>
 
             <div className="mt-12 flex items-end justify-between">
               <div className="flex items-center gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop"
-                  alt=""
+                  src="https://i.pravatar.cc/100?u=anjum"
+                  alt="Anjum Mujawar"
                   className="h-[56px] w-[56px] rounded-full object-cover"
                 />
 
@@ -169,11 +171,11 @@ export default function EditorialGridReverse() {
                       fontSize: "18px",
                     }}
                   >
-                    Julien Lemoine
+                    Anjum Mujawar
                   </div>
 
                   <div className="text-sm text-white/60">
-                    CTO @Mistral AI
+                    Developer
                   </div>
                 </div>
               </div>
