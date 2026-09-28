@@ -275,8 +275,6 @@ export default function AboutPage() {
         </FlowSection>
       </FlowArt>
 
-      <WaabiScroll />
-
       {/* Bottom CTA */}
       <div className="relative z-20">
         <BoldCtaSection />

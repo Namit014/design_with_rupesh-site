@@ -247,6 +247,8 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
+      {/* Cinematic Animation Section */}
+      <CinematicZoom />
 
       <FeaturedWorkSection />
       {/* TOP LARGE SHOWCASE CARD */}
