@@ -4,31 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Home, Briefcase, Smile, Mail } from 'lucide-react';
 import Link from 'next/link';
-import ScrollBatchGallery from "@/components/ui/scroll-batch-gallery";
+import ProjectShowcaseCard from "@/components/ui/project-showcase-card";
 
 // --- Shared Navigation Components ---
-const Logo = () => (
-  <motion.div
-    initial={{ opacity: 0, y: -10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed top-[28px] left-[28px] z-50 group cursor-pointer"
-  >
-    <Link href="/">
-      <div className="text-[26px] font-black leading-[1] tracking-tight text-white hover:opacity-80 transition-opacity">The Rebirth<br />Company</div>
-    </Link>
-  </motion.div>
-);
 
 const NavButton = ({ icon: Icon, active = false, href }: { icon: any, active?: boolean, href?: string }) => {
   const content = (
     <motion.button
       whileHover={{ y: -3, backgroundColor: 'rgba(23, 20, 18, 0.08)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors ${active ? 'bg-white shadow-sm' : 'bg-white/45 backdrop-blur-[2px]'
+      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors shadow-sm ${active ? 'bg-[#111111] text-white' : 'bg-white border border-[#111111]/10 text-[#111111]/60 hover:bg-[#111111] hover:text-white'
         }`}
     >
-      <Icon size={20} className="md:w-6 md:h-6 text-[#171412]" strokeWidth={1.5} />
+      <Icon size={20} className="md:w-6 md:h-6" strokeWidth={2} />
     </motion.button>
   );
 
@@ -52,65 +40,82 @@ const FloatingNav = () => (
   </motion.div>
 );
 
-const Footer = () => {
-  const [time, setTime] = useState('1:47 AM');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'Asia/Kolkata'
-      }));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col pointer-events-none"
-      >
-        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">The Rebirth<br />Company</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">GLOBAL</span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 pointer-events-none text-white"
-      >
-        Mumbai, India {time}
-      </motion.div>
-    </>
-  );
-};
+const PROJECTS = [
+  {
+    title: "YANTRAA.TECH",
+    year: "TECH 2024",
+    image: "https://i.pinimg.com/1200x/dd/72/c2/dd72c22badd2cb9f03363a940f4fa283.jpg",
+    href: "https://yantraa.tech",
+    cta: "DISCOVER CASE",
+  },
+  {
+    title: "FLOW ART STUDIOS",
+    year: "CREATIVE 2025",
+    image: "https://i.pinimg.com/736x/fe/13/98/fe13988e1815350338d1991d336f6f73.jpg",
+    href: "https://flowart.studio",
+    cta: "VISIT SITE",
+  },
+  {
+    title: "NEXUS PAY",
+    year: "FINTECH 2024",
+    image: "https://i.pinimg.com/736x/5e/69/35/5e6935300f0f372bc4e46b0674b216ed.jpg",
+    href: "https://nexuspay.co",
+    cta: "DISCOVER CASE",
+  },
+  {
+    title: "QUANTUM LOGISTICS",
+    year: "SAAS 2026",
+    image: "https://i.pinimg.com/1200x/85/cd/51/85cd51c485eaca101419cb3e9eddad3a.jpg",
+    href: "https://quantumlogistics.com",
+    cta: "VISIT SITE",
+  },
+  {
+    title: "AURA BEAUTY",
+    year: "E-COMMERCE 2025",
+    image: "https://i.pinimg.com/736x/fe/13/98/fe13988e1815350338d1991d336f6f73.jpg",
+    href: "https://aurabeauty.com",
+    cta: "DISCOVER CASE",
+  },
+];
 
 export default function ShowcasePage() {
   return (
-    <div className="relative w-full bg-black min-h-screen overflow-x-hidden">
+    <div className="relative w-full bg-[#F3F0EA] min-h-screen overflow-x-hidden selection:bg-[#111111] selection:text-white pb-32">
       {/* UI Elements */}
       <FloatingNav />
-      <Footer />
 
-      <main className="relative z-10 pt-[10vh]">
-        <div className="max-w-7xl mx-auto px-8 md:px-24 mb-12 text-center">
+      <main className="relative z-10 pt-[15vh]">
+        <div className="max-w-7xl mx-auto px-8 md:px-24 mb-20 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="uppercase text-sm font-bold tracking-widest mb-6 text-[#111111]/70"
+            >
+              Our Portfolio
+            </motion.p>
             <motion.h1 
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
-               className="text-[clamp(3rem,8vw,6rem)] font-black tracking-tighter text-white uppercase"
+               className="text-[clamp(3rem,9vw,8rem)] font-black tracking-[-0.04em] text-[#111111] uppercase leading-[0.85]"
+               style={{ fontFamily: 'Youth, Arial, sans-serif' }}
             >
-                Selected Works
+                SELECTED WORKS
             </motion.h1>
         </div>
         
-        <ScrollBatchGallery />
+        <div className="flex flex-col gap-12 max-w-[1400px] mx-auto w-full md:pl-[80px]">
+          {PROJECTS.map((project, index) => (
+            <ProjectShowcaseCard
+              key={index}
+              title={project.title}
+              year={project.year}
+              image={project.image}
+              href={project.href}
+              cta={project.cta}
+            />
+          ))}
+        </div>
       </main>
     </div>
   );

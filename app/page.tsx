@@ -259,38 +259,17 @@ export default function LandingPage() {
       <CinematicZoom />
 
       <FeaturedWorkSection />
-      
-      {/* 5 PROJECT SHOWCASE CARDS */}
-      <ProjectShowcaseCard 
-        title="YANTRAA.TECH" 
-        year="TECH 2024" 
-        image="https://i.pinimg.com/1200x/85/cd/51/85cd51c485eaca101419cb3e9eddad3a.jpg" 
-        link="#" 
-      />
-      <ProjectShowcaseCard 
-        title="GOSTAN" 
-        year="SAAS 2025" 
-        video="/trb2.mp4" 
-        link="#" 
-      />
-      <ProjectShowcaseCard 
-        title="AURORA" 
-        year="ECOMMERCE 2025" 
-        image="https://i.pinimg.com/736x/fe/13/98/fe13988e1815350338d1991d336f6f73.jpg" 
-        link="#" 
-      />
-      <ProjectShowcaseCard 
-        title="NEXUS" 
-        year="PLATFORM 2024" 
-        image="https://i.pinimg.com/736x/5e/69/35/5e6935300f0f372bc4e46b0674b216ed.jpg" 
-        link="#" 
-      />
-      <ProjectShowcaseCard 
-        title="VANGUARD" 
-        year="FINTECH 2026" 
-        video="/trb1.mp4" 
-        link="#" 
-      />
+      {/* TOP LARGE SHOWCASE CARD */}
+      <ProjectShowcaseCard video="/trb2.mp4" />
+
+      {/* 3 CARD EDITORIAL GRID */}
+      <EditorialThreeCardGrid />
+
+      {/* TOP LARGE SHOWCASE CARD */}
+      <ProjectShowcaseCard image="/image copy.png" />
+
+      {/* REVERSED EDITORIAL GRID */}
+      <EditorialGridReverse />
 
       <div ref={servicesRef}>
         <Services />
