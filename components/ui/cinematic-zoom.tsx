@@ -99,7 +99,7 @@ export default function CinematicZoom() {
           >
             <video
               src="/THE REBIRTH COMPANY.mp4"
-              className="absolute inset-0 h-full w-full object-cover pointer-events-none will-change-transform transform-gpu"
+              className="absolute inset-0 h-full w-full object-cover max-md:object-contain pointer-events-none will-change-transform transform-gpu"
               autoPlay
               loop
               muted
