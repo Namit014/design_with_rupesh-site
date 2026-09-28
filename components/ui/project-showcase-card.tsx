@@ -22,7 +22,23 @@ export default function ProjectShowcaseCard({
 }: ProjectShowcaseCardProps) {
   return (
     <section className="project-showcase-wrapper w-full px-8 pb-10 pt-0">
-      <Link href={href} className="block w-full">
+      <Link href={href} className="block w-full group/link">
+        {/* Header Above Card */}
+        <div className="flex w-full max-w-[1180px] mx-auto items-end justify-between pb-4">
+          <div className="flex items-baseline gap-4">
+            <h3 className="uppercase text-[#111111] text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
+              {title}
+            </h3>
+            <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
+              {year}
+            </span>
+          </div>
+          <div className="hidden md:flex items-center gap-2 uppercase text-[#111111] font-bold text-[16px] tracking-[-0.3px] group-hover/link:underline underline-offset-4">
+            {cta}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,68 +68,7 @@ export default function ProjectShowcaseCard({
           )}
         </div>
 
-        <motion.div
-          initial="rest"
-          whileHover="hover"
-          animate="rest"
-          variants={{
-            rest: { width: "auto", height: 48 },
-            hover: { width: "calc(100% - 2rem)", height: 72 }
-          }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="project-showcase-headline absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
-        >
-          {/* CONTENT */}
-          <div className="relative z-10 flex w-full items-center justify-between">
-            <div className="flex items-center gap-3 text-white">
-              <motion.h3
-                className="uppercase whitespace-nowrap"
-                variants={{
-                  rest: { fontSize: "18px" },
-                  hover: { fontSize: "42px" }
-                }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  fontFamily: "Youth, sans-serif",
-                  lineHeight: "1",
-                  letterSpacing: "-2px",
-                  fontWeight: 900,
-                }}
-              >
-                {title}
-              </motion.h3>
-
-              <span
-                className="uppercase opacity-80"
-                style={{
-                  fontFamily: "PP Neue Montreal, sans-serif",
-                  fontSize: "15px",
-                  lineHeight: "1.1",
-                  letterSpacing: "1px",
-                }}
-              >
-                {year}
-              </span>
-            </div>
-
-            <motion.div
-              className="uppercase text-white overflow-hidden whitespace-nowrap"
-              variants={{
-                rest: { opacity: 0, width: 0 },
-                hover: { opacity: 1, width: "auto" }
-              }}
-              transition={{ duration: 0.3 }}
-              style={{
-                fontFamily: "PP Neue Montreal, sans-serif",
-                fontSize: "16px",
-                fontWeight: 700,
-                letterSpacing: "-0.3px",
-              }}
-            >
-              {cta}
-            </motion.div>
-          </div>
-        </motion.div>
+        </div>
       </motion.div>
       </Link>
     </section>
