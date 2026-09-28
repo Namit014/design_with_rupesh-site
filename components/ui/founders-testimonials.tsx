@@ -125,7 +125,7 @@ export default function SemiCircularCardAnimation() {
           >
             Trusted by
             <br />
-            <span className="text-[#9D908A]">+40 founders</span>
+            <span className="text-[#9D908A]">visionary founders</span>
           </h2>
         </div>
 
