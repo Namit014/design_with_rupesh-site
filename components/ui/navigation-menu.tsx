@@ -16,9 +16,9 @@ export default function NavigationMenu() {
           setIsOpen(!isOpen);
           if (isOpen) setTimeout(() => setActiveTab('main'), 500); // reset after close animation
         }}
-        className="fixed left-[36px] bottom-[30px] z-[120] flex flex-col items-center gap-[6px] hover:opacity-70 transition-opacity mix-blend-difference text-white"
+        className="fixed left-[16px] bottom-[24px] md:left-[36px] md:bottom-[30px] z-[120] flex flex-col items-center gap-[6px] hover:opacity-70 transition-opacity mix-blend-difference text-white"
       >
-        <span className="text-[14px] font-bold tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
+        <span className="text-[12px] md:text-[14px] font-bold tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
           {isOpen ? 'Close' : 'Menu'}
         </span>
         <div className="flex gap-[6px]">

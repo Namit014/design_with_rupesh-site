@@ -34,10 +34,10 @@ const NavButton = ({ icon: Icon, active = false, href }: { icon: any, active?: b
     <motion.button
       whileHover={{ y: -3, backgroundColor: 'rgba(23, 20, 18, 0.12)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors shadow-sm ${active ? 'bg-[#111111] text-white' : 'bg-[#E5E3DC] text-[#171412]/60 hover:bg-[#111111] hover:text-white'
+      className={`w-[44px] h-[44px] md:w-[72px] md:h-[72px] rounded-[14px] md:rounded-[20px] flex items-center justify-center transition-colors shadow-sm ${active ? 'bg-[#111111] text-white' : 'bg-[#E5E3DC] text-[#171412]/60 hover:bg-[#111111] hover:text-white'
         }`}
     >
-      <Icon size={20} className="md:w-6 md:h-6" strokeWidth={2} />
+      <Icon size={18} className="md:w-6 md:h-6" strokeWidth={2} />
     </motion.button>
   );
 
@@ -52,7 +52,7 @@ const FloatingNav = ({ hidden }: { hidden?: boolean }) => (
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: hidden ? 0 : 1, x: hidden ? -40 : 0 }}
     transition={{ duration: 0.8, delay: hidden ? 0 : 0.4, ease: [0.16, 1, 0.3, 1] as any }}
-    className={`fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-[12px] md:gap-[14px] ${hidden ? 'pointer-events-none' : ''}`}
+    className={`fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-[8px] md:gap-[14px] ${hidden ? 'pointer-events-none' : ''}`}
   >
     <NavButton icon={Home} active href="/" />
     <NavButton icon={Briefcase} href="/showcase" />
