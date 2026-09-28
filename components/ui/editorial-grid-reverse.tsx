@@ -175,7 +175,7 @@ export default function EditorialGridReverse() {
               </div>
 
               <a
-                href="https://conekt.tech"
+                href="https://conekt.design"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70"

@@ -205,18 +205,10 @@ export default function LandingPage() {
             }}
           >
             The digital
-            <span className="inline-flex items-center ml-1" style={{ verticalAlign: 'baseline', transform: 'translateY(0.05em)' }}>
-              <span 
-                className="inline-flex items-center justify-center border-accent text-accent rounded-full font-bold"
-                style={{
-                  width: '0.75em',
-                  height: '0.75em',
-                  borderWidth: '0.08em',
-                  fontSize: '0.5em',
-                }}
-              >
-                C
-              </span>
+            <span className="inline-flex items-center ml-2 text-[#FF7A22]" style={{ verticalAlign: 'middle', transform: 'translateY(-0.05em)' }}>
+              <svg viewBox="0 0 100 100" className="w-[0.55em] h-[0.55em] fill-current">
+                <path fillRule="evenodd" clipRule="evenodd" d="M50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0ZM17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50ZM67.5707 33.1557C63.2625 29.548 57.3871 27.5 50 27.5C37.5736 27.5 27.5 37.5736 27.5 50C27.5 62.4264 37.5736 72.5 50 72.5C57.3871 72.5 63.2625 70.452 67.5707 66.8443C69.8394 64.9452 69.9678 61.5428 67.8924 59.4589C65.8118 57.3697 62.3807 57.4834 60.1583 59.3908C57.5721 61.611 54.1206 63 50 63C42.8203 63 37 57.1797 37 50C37 42.8203 42.8203 37 50 37C54.1206 37 57.5721 38.389 60.1583 40.6092C62.3807 42.5166 65.8118 42.6303 67.8924 40.5411C69.9678 38.4572 69.8394 35.0548 67.5707 33.1557Z" />
+              </svg>
             </span>
             <br />
             partner for top-tier companies
