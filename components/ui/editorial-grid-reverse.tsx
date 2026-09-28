@@ -176,7 +176,12 @@ export default function EditorialGridReverse() {
                 </div>
               </div>
 
-              <button className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70">
+              <a
+                href="https://conekt.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70"
+              >
                 <span
                   style={{
                     fontFamily: "PP Neue Montreal, sans-serif",
@@ -190,7 +195,7 @@ export default function EditorialGridReverse() {
                 <div className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-[#F3F0EA] text-black">
                   ↗
                 </div>
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
