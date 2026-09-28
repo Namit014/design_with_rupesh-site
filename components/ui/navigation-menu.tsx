@@ -101,13 +101,13 @@ export default function NavigationMenu() {
                     ← Back to Menu
                   </button>
                   <h2 className="text-white text-4xl font-bold mb-6 tracking-tight" style={{ fontFamily: 'Youth, sans-serif' }}>Join the team</h2>
-                  <form className="flex flex-col gap-4 flex-1">
-                    <input type="text" placeholder="Full Name" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-white/30 transition-colors" />
-                    <input type="email" placeholder="Email Address" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-white/30 transition-colors" />
-                    <input type="text" placeholder="Desired Role" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-white/30 transition-colors" />
-                    <input type="url" placeholder="Portfolio / LinkedIn URL" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-white/30 transition-colors" />
-                    <textarea placeholder="Tell us about yourself..." rows={4} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-white/30 transition-colors resize-none"></textarea>
-                    <button type="button" className="mt-4 bg-white text-black font-bold uppercase tracking-widest text-sm rounded-xl py-4 hover:scale-[1.02] transition-transform">
+                  <form className="flex flex-col gap-4 flex-1 mt-2">
+                    <input type="text" placeholder="Full Name" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input type="email" placeholder="Email Address" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input type="text" placeholder="Desired Role" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <input type="url" placeholder="Portfolio / LinkedIn URL" className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }} />
+                    <textarea placeholder="Tell us about yourself..." rows={3} className="bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 outline-none focus:bg-white/10 focus:border-white/40 transition-all font-medium resize-none" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}></textarea>
+                    <button type="button" className="mt-4 bg-white text-black font-bold uppercase tracking-[2px] text-[13px] rounded-xl py-4 hover:scale-[1.02] hover:bg-white/90 transition-all shadow-lg shadow-white/5">
                       Submit Application
                     </button>
                   </form>
@@ -127,7 +127,7 @@ export default function NavigationMenu() {
                     ← Back to Menu
                   </button>
                   <h2 className="text-white text-4xl font-bold mb-6 tracking-tight" style={{ fontFamily: 'Youth, sans-serif' }}>Privacy Policy</h2>
-                  <div className="flex-1 overflow-y-auto text-sm leading-relaxed pr-4 space-y-4 font-sans">
+                  <div className="flex-1 overflow-y-auto text-sm leading-relaxed pr-2 space-y-4 font-sans [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <p>Last updated: September 2026</p>
                     <p>At The Rebirth Company, we take your privacy seriously. This policy describes how we collect, use, and handle your personal information when you use our website and services.</p>
                     <p>We only collect information that is necessary to provide our services and improve your experience. We do not sell your personal data to third parties.</p>
@@ -149,7 +149,7 @@ export default function NavigationMenu() {
                     ← Back to Menu
                   </button>
                   <h2 className="text-white text-4xl font-bold mb-6 tracking-tight" style={{ fontFamily: 'Youth, sans-serif' }}>Terms of Service</h2>
-                  <div className="flex-1 overflow-y-auto text-sm leading-relaxed pr-4 space-y-4 font-sans">
+                  <div className="flex-1 overflow-y-auto text-sm leading-relaxed pr-2 space-y-4 font-sans [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <p>Last updated: September 2026</p>
                     <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
                     <p>All content included on this site, such as text, graphics, logos, images, and software, is the property of The Rebirth Company or its content suppliers and protected by international copyright laws.</p>
