@@ -91,7 +91,7 @@ const FlowArt: React.FC<FlowArtProps> = ({
             scrollTrigger: {
               trigger: section,
               start: 'top bottom',
-              end: 'top 25%',
+              end: 'top top',
               scrub: true,
             },
           });

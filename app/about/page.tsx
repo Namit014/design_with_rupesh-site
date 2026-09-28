@@ -100,15 +100,7 @@ const Footer = () => {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex flex-col pointer-events-none"
-      >
-        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">The Rebirth<br />Company</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">GLOBAL</span>
-      </motion.div>
+      {/* Rebirth Logo removed from here as it should only be on the homepage */}
 
       <motion.div
         initial={{ opacity: 0 }}
