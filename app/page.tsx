@@ -142,16 +142,6 @@ const Footer = ({ hidden }: { hidden?: boolean }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: hidden ? 0 : 1 }}
         transition={{ duration: 1, delay: hidden ? 0 : 1 }}
-        className={`hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col items-center ${hidden ? 'pointer-events-none' : ''}`}
-      >
-        <span className="text-[14px] font-bold tracking-tight uppercase">MENU</span>
-        <span className="text-[16px] font-bold tracking-[2px] leading-[0.5] mt-1">...</span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hidden ? 0 : 1 }}
-        transition={{ duration: 1, delay: hidden ? 0 : 1 }}
         className={`hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 ${hidden ? 'pointer-events-none' : ''}`}
       >
         Mumbai, India {time}
