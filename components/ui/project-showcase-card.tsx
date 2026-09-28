@@ -114,6 +114,7 @@ export default function ProjectShowcaseCard({
             </motion.div>
           </div>
         </motion.div>
+      </motion.div>
       </Link>
     </section>
   );
