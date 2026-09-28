@@ -182,7 +182,7 @@ export default function SemiCircularCardAnimation() {
               key={item.id}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-full max-w-[400px] lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
+              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-full lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
               style={{
                 backgroundColor: item.bg,
                 color: item.textColor,
