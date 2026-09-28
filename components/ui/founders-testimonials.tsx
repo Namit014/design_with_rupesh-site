@@ -131,14 +131,15 @@ export default function SemiCircularCardAnimation() {
       className="relative min-h-screen overflow-hidden bg-[#F3F0EA] px-8 py-24"
     >
       <div className="mx-auto max-w-[1300px]">
-        <div className="mb-24 ml-5">
+        <div className="mb-16 md:mb-24 ml-0 md:ml-5 text-left">
           <h2
-            className="text-[79px] font-black leading-[1] tracking-[-5px] text-[#171412] max-lg:text-[56px]"
+            className="text-[42px] md:text-[56px] lg:text-[79px] font-black leading-[1] tracking-[-2px] lg:tracking-[-5px] text-[#171412]"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             Trusted by
             <br />
-            <span className="text-[#9D908A]">visionary founders</span>
+            <span className="text-[#9D908A]">visionary
+            <br className="md:hidden" /> founders</span>
           </h2>
         </div>
 
