@@ -103,20 +103,19 @@ export default function EditorialGridReverse() {
               </p>
             </div>
 
-            <div className="mt-12 flex items-end justify-between">
-              <div className="flex items-center gap-4">
+            <div className="mt-12 flex items-end justify-between gap-2">
+              <div className="flex items-center gap-2 md:gap-4 shrink-0">
                 <img
                   src="https://i.pinimg.com/1200x/9b/5c/26/9b5c2689ab13f305bb89a8ed99e336d8.jpg"
                   alt="Anjum Mujawar"
-                  className="h-[56px] w-[56px] rounded-full object-cover"
+                  className="h-[40px] w-[40px] md:h-[56px] md:w-[56px] rounded-full object-cover shrink-0"
                 />
 
                 <div>
                   <div
-                    className="text-white"
+                    className="text-white whitespace-nowrap text-[14px] md:text-[18px]"
                     style={{
                       fontFamily: "PP Neue Montreal, sans-serif",
-                      fontSize: "18px",
                     }}
                   >
                     Anjum Mujawar
@@ -128,19 +127,19 @@ export default function EditorialGridReverse() {
                 href="https://conekt.design"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70"
+                className="flex items-center gap-2 md:gap-4 text-white transition-opacity duration-300 hover:opacity-70 shrink-0"
               >
                 <span
+                  className="whitespace-nowrap text-[12px] md:text-[15px]"
                   style={{
                     fontFamily: "PP Neue Montreal, sans-serif",
-                    fontSize: "15px",
                     fontWeight: 700,
                   }}
                 >
                   VIEW PROJECT
                 </span>
 
-                <div className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-[#F3F0EA] text-black">
+                <div className="flex h-[32px] w-[32px] md:h-[44px] md:w-[44px] shrink-0 items-center justify-center rounded-full bg-[#F3F0EA] text-black">
                   ↗
                 </div>
               </a>
