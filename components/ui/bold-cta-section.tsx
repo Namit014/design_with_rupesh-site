@@ -20,7 +20,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
 
   return (
     <>
-      <section className="relative w-full h-[60vh] md:h-[80vh] bg-[#0B0B0B] text-[#F8F8F8] flex flex-col items-center justify-between pt-16 md:pt-24 selection:bg-white selection:text-black overflow-hidden">
+      <section className="relative w-full min-h-[80vh] md:min-h-screen bg-[#0B0B0B] text-[#F8F8F8] flex flex-col items-center justify-between pt-16 md:pt-24 selection:bg-white selection:text-black overflow-hidden">
         {/* --- Top Bar & Copyright --- */}
         <div className="w-full flex flex-col items-center gap-6 z-20">
           <button
@@ -37,7 +37,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
         </div>
 
         {/* --- Huge Footer Text --- */}
-        <div className="w-full flex-1 flex flex-col justify-end pb-8">
+        <div className="w-full flex-1 flex flex-col justify-end pb-12 pt-12 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,18 +46,18 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
             className="w-full flex justify-center"
           >
             <div
-              className="select-none text-center whitespace-nowrap"
+              className="select-none text-right"
               style={{
                 fontFamily: 'Youth, system-ui, sans-serif',
-                fontSize: 'clamp(3rem, 14vw, 400px)',
+                fontSize: 'clamp(3rem, 16vw, 220px)',
                 lineHeight: 0.75,
-                letterSpacing: '-0.06em',
+                letterSpacing: '-0.04em',
                 fontWeight: 900,
                 color: '#151515',
                 textTransform: 'uppercase',
               }}
             >
-              The Rebirth
+              The<br/>Rebirth<br/>Company
             </div>
           </motion.div>
         </div>
