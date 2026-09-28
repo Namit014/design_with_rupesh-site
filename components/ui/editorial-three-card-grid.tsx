@@ -15,7 +15,7 @@ export default function EditorialThreeCardGrid() {
                 MODERN IDENTITY
               </h3>
               <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
-                B2C APP 2024
+                B2C APP
               </span>
             </div>
             <motion.div
@@ -116,7 +116,7 @@ export default function EditorialThreeCardGrid() {
               MODERN ECOM
             </h3>
             <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
-              E-COMMERCE 2026
+              E-COMMERCE
             </span>
           </div>
           <motion.div
@@ -125,7 +125,7 @@ export default function EditorialThreeCardGrid() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
-            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black aspect-square md:aspect-[4/5] lg:aspect-auto lg:h-full min-h-[400px] lg:min-h-0"
+            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black h-[80vh] md:h-[600px] lg:h-full lg:min-h-0"
           >
             {/* VIDEO BACKGROUND */}
             <div className="absolute inset-0 h-full overflow-hidden">

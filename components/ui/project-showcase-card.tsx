@@ -16,7 +16,7 @@ export default function ProjectShowcaseCard({
   image,
   video,
   title = "YANTRAA.TECH",
-  year = "TECH 2024",
+  year = "TECH",
   cta = "DISCOVER CASE",
   href = "#",
 }: ProjectShowcaseCardProps) {

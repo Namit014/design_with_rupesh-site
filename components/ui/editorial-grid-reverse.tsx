@@ -14,7 +14,7 @@ export default function EditorialGridReverse() {
               GENH SITE
             </h3>
             <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
-              GOV TECH 2026
+              GOV TECH
             </span>
           </div>
           <motion.div
@@ -23,7 +23,7 @@ export default function EditorialGridReverse() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
-            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black cursor-pointer aspect-square md:aspect-[4/5] lg:aspect-auto lg:h-full min-h-[400px] lg:min-h-0"
+            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black cursor-pointer h-[80vh] md:h-[600px] lg:h-full lg:min-h-0"
           >
             {/* IMAGE */}
             <div className="absolute inset-0 h-full overflow-hidden">
@@ -47,7 +47,7 @@ export default function EditorialGridReverse() {
                 DEADLOCK STUDIO
               </h3>
               <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
-                STUDIO 2026
+                STUDIO
               </span>
             </div>
             <motion.div
