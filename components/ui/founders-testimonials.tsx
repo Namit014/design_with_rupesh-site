@@ -129,35 +129,39 @@ export default function SemiCircularCardAnimation() {
           </h2>
         </div>
 
-        <div className="relative flex min-h-[640px] items-center justify-center">
+        <style>{`
+          @media (min-width: 1024px) {
+            ${testimonials.map((item, i) => `
+              .orbit-card-${i} { 
+                left: calc(50% - 160px + ${(i - 2) * 120}px); 
+                transform: rotate(${item.rotation});
+              }
+              
+              .cards-container:hover .orbit-card-${i}:not(.active-card) {
+                transform: rotate(${item.rotation}) translateX(${i < (activeCard || 0) ? '-220px' : '220px'}) scale(0.96);
+                opacity: 0.9;
+              }
+            `).join('')}
+            
+            .cards-container .orbit-card.active-card {
+              transform: scale(1.03) translateY(0px) translateX(0px) !important;
+              z-index: 99 !important;
+              opacity: 1 !important;
+            }
+          }
+        `}</style>
+        
+        <div className="cards-container relative flex lg:min-h-[640px] items-center justify-start lg:justify-center overflow-x-auto lg:overflow-visible gap-6 lg:gap-0 px-4 lg:px-0 py-12 lg:py-0 snap-x snap-mandatory pb-16">
           {testimonials.map((item, index) => (
             <div
               key={item.id}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
-              className="orbit-card absolute flex h-[520px] w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+              className={`orbit-card orbit-card-${index} ${activeCard === index ? 'active-card' : ''} snap-center shrink-0 relative lg:absolute flex h-[480px] lg:h-[520px] w-[300px] lg:w-[320px] flex-col justify-between rounded-[28px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]`}
               style={{
                 backgroundColor: item.bg,
                 color: item.textColor,
-                left: `calc(50% - 160px + ${(index - 2) * 120}px)`,
-                zIndex:
-                  activeCard === index
-                    ? 99
-                    : testimonials.length - index,
-                transform:
-                  activeCard === null
-                    ? `rotate(${item.rotation}) translateY(0px) translateX(0px) scale(1)`
-                    : activeCard === index
-                    ? `rotate(0deg) translateY(0px) translateX(0px) scale(1.03)`
-                    : index < activeCard
-                    ? `rotate(${item.rotation}) translateX(-220px) translateY(0px) scale(0.96)`
-                    : `rotate(${item.rotation}) translateX(220px) translateY(0px) scale(0.96)`,
-                opacity:
-                  activeCard === null
-                    ? 1
-                    : activeCard === index
-                    ? 1
-                    : 0.9,
+                zIndex: testimonials.length - index,
               }}
             >
               <div>

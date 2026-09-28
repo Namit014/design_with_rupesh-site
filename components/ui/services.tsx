@@ -49,8 +49,8 @@ export default function Services() {
   return (
     <div className="py-16 overflow-hidden bg-[#f9f9f9] text-black">
       <div className="mx-auto max-w-7xl px-5 md:px-0">
-        <div className="flex justify-between items-end mb-16">
-          <h2 className="text-7xl tracking-tight" style={{ fontFamily: "Youth, sans-serif", fontWeight: 900 }}>Services.</h2>
+        <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 md:gap-0 mb-12 md:mb-16">
+          <h2 className="text-5xl md:text-7xl tracking-tight" style={{ fontFamily: "Youth, sans-serif", fontWeight: 900 }}>Services.</h2>
           <p className="max-w-md font-medium text-neutral-500" style={{ fontFamily: "PP Neue Montreal, sans-serif" }}>
             Our engineering solutions are tailored to meet the unique challenges of modern
             web platforms, providing blazing-fast speed, bulletproof reliability, and scalable architecture at
@@ -78,14 +78,14 @@ export default function Services() {
 function Project({ index, title, setModal }: any) {
   return (
     <div
-      className="group flex w-full cursor-pointer items-center justify-between border-[#c9c9c9] border-t px-[100px] py-[50px] transition-all duration-200 last:border-b hover:opacity-50"
+      className="group flex w-full cursor-pointer items-center justify-between border-[#c9c9c9] border-t px-4 py-6 md:px-[100px] md:py-[50px] transition-all duration-200 last:border-b hover:opacity-50"
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
     >
-      <h2 className="m-0 font-normal text-6xl transition-all duration-300 group-hover:translate-x-2.5" style={{ fontFamily: "Youth, sans-serif" }}>
+      <h2 className="m-0 font-normal text-3xl md:text-6xl transition-all duration-300 group-hover:translate-x-2.5 max-w-[70%]" style={{ fontFamily: "Youth, sans-serif" }}>
         {title}
       </h2>
-      <p className="font-light transition-all duration-300 group-hover:translate-x-2.5 text-[#171412]" style={{ fontFamily: "PP Neue Montreal, sans-serif" }}>
+      <p className="font-light transition-all duration-300 group-hover:translate-x-2.5 text-[#171412] text-sm md:text-base text-right" style={{ fontFamily: "PP Neue Montreal, sans-serif" }}>
         Web Engineering
       </p>
     </div>
