@@ -6,8 +6,8 @@ type ProjectShowcaseCardProps = {
   image?: string;
   video?: string;
   title?: string;
-  year?: string;
   cta?: string;
+  link?: string;
 };
 
 export default function ProjectShowcaseCard({
@@ -16,16 +16,16 @@ export default function ProjectShowcaseCard({
   title = "YANTRAA.TECH",
   year = "TECH 2024",
   cta = "DISCOVER CASE",
+  link = "#",
 }: ProjectShowcaseCardProps) {
-  return (
-    <section className="project-showcase-wrapper w-full bg-[#F3F0EA] px-8 pb-4 pt-0">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        viewport={{ once: true }}
-        className="project-showcase-card group relative mx-auto aspect-[1000/540] w-full max-w-[1180px] overflow-hidden rounded-[28px] bg-black"
-      >
+  const CardContent = (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true }}
+      className="project-showcase-card group relative mx-auto aspect-[1000/540] w-full max-w-[1180px] overflow-hidden rounded-[28px] bg-black cursor-pointer"
+    >
         {/* MEDIA */}
         <div className="project-showcase-media absolute inset-0 overflow-hidden">
           {video ? (
@@ -111,6 +111,13 @@ export default function ProjectShowcaseCard({
           </div>
         </motion.div>
       </motion.div>
+  );
+
+  return (
+    <section className="project-showcase-wrapper w-full bg-[#F3F0EA] px-8 pb-4 pt-0">
+      <a href={link} className="block w-full h-full">
+        {CardContent}
+      </a>
     </section>
   );
 }
