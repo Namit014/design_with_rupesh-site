@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function EditorialThreeCardGrid() {
   return (
-    <section className="editorial-grid-wrapper w-full bg-[#F3F0EA] px-8 pb-4 pt-0">
+    <section className="editorial-grid-wrapper w-full bg-[#F3F0EA] px-4 md:px-8 pb-4 pt-0">
       <div className="editorial-grid-layout mx-auto grid max-w-[1180px] grid-cols-12 gap-4">
         {/* LEFT COLUMN */}
         <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
@@ -97,7 +97,7 @@ export default function EditorialThreeCardGrid() {
               className="mt-6 max-w-[540px] text-white"
               style={{
                 fontFamily: "PP Neue Montreal, sans-serif",
-                fontSize: "28px",
+                fontSize: "clamp(20px, 6vw, 28px)",
                 lineHeight: "1.08",
                 letterSpacing: "-1.4px",
               }}

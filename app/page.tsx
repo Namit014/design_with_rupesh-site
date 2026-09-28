@@ -183,12 +183,12 @@ export default function LandingPage() {
       {/* <FloatingDiscoveryPill /> */}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-12 pt-20">
+      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-24 md:pt-20">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="relative z-10 flex flex-col items-center text-center max-w-[1400px] w-full -mt-24"
+          className="relative z-10 flex flex-col items-center text-center max-w-[1400px] w-full -mt-16 md:-mt-24"
         >
           {/* Main Headline */}
           <motion.h1
@@ -196,7 +196,7 @@ export default function LandingPage() {
             className="font-bold text-[#171412] max-w-[1200px] text-center"
             style={{
               fontFamily: 'Youth, Arial, sans-serif',
-              fontSize: 'clamp(3.6em, 7vw, 7em)',
+              fontSize: 'clamp(3rem, 10vw, 7rem)',
               fontWeight: 700,
               lineHeight: 0.8,
               letterSpacing: '-0.05em',
@@ -210,7 +210,7 @@ export default function LandingPage() {
                 <path fillRule="evenodd" clipRule="evenodd" d="M50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0ZM17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50ZM67.5707 33.1557C63.2625 29.548 57.3871 27.5 50 27.5C37.5736 27.5 27.5 37.5736 27.5 50C27.5 62.4264 37.5736 72.5 50 72.5C57.3871 72.5 63.2625 70.452 67.5707 66.8443C69.8394 64.9452 69.9678 61.5428 67.8924 59.4589C65.8118 57.3697 62.3807 57.4834 60.1583 59.3908C57.5721 61.611 54.1206 63 50 63C42.8203 63 37 57.1797 37 50C37 42.8203 42.8203 37 50 37C54.1206 37 57.5721 38.389 60.1583 40.6092C62.3807 42.5166 65.8118 42.6303 67.8924 40.5411C69.9678 38.4572 69.8394 35.0548 67.5707 33.1557Z" />
               </svg>
             </span>
-            <br />
+            <br className="hidden md:block" />
             partner for top-tier companies
           </motion.h1>
 
@@ -219,10 +219,10 @@ export default function LandingPage() {
           {/* Supporting Paragraph */}
           <motion.p
             variants={item}
-            className="mt-[80px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.1] tracking-[-1px] text-[#171412] max-w-[780px]"
+            className="mt-[60px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.3] md:leading-[1.1] tracking-tight md:tracking-[-1px] text-[#171412] max-w-[780px]"
           >
-            We help startups to ship iconic<br />
-            web apps, conversion-ready sites, and<br />
+            We help startups to ship iconic<br className="hidden md:block" />
+            web apps, conversion-ready sites, and<br className="hidden md:block" />
             blazing-fast software.
           </motion.p>
 

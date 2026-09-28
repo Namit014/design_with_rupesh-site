@@ -49,7 +49,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
               className="select-none text-center whitespace-nowrap"
               style={{
                 fontFamily: 'Youth, system-ui, sans-serif',
-                fontSize: 'clamp(80px, 20vw, 400px)',
+                fontSize: 'clamp(3rem, 14vw, 400px)',
                 lineHeight: 0.75,
                 letterSpacing: '-0.06em',
                 fontWeight: 900,

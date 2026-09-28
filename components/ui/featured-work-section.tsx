@@ -12,12 +12,13 @@ export default function FeaturedWorkSection() {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className="featured-work-content relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center"
       >
-        <div className="featured-work-heading leading-none tracking-[-6.3px]">
+        <div className="featured-work-heading">
           <h1
             className="font-black text-[#171412]"
             style={{
-              fontSize: 'clamp(4rem,8vw,126px)',
-              lineHeight: '101px',
+              fontSize: 'clamp(3rem, 12vw, 126px)',
+              lineHeight: 0.8,
+              letterSpacing: '-0.05em',
               fontFamily: 'Youth, sans-serif',
             }}
           >
@@ -25,10 +26,11 @@ export default function FeaturedWorkSection() {
           </h1>
 
           <h1
-            className="mt-[-8px] font-black text-[#8E827C]"
+            className="mt-2 md:mt-[-8px] font-black text-[#8E827C]"
             style={{
-              fontSize: 'clamp(4rem,8vw,126px)',
-              lineHeight: '101px',
+              fontSize: 'clamp(3rem, 12vw, 126px)',
+              lineHeight: 0.8,
+              letterSpacing: '-0.05em',
               fontFamily: 'Youth, sans-serif',
             }}
           >
@@ -36,16 +38,13 @@ export default function FeaturedWorkSection() {
           </h1>
         </div>
 
-        <div className="mt-16 text-6xl font-thin text-[#171412]">
+        <div className="mt-12 md:mt-16 text-4xl md:text-6xl font-thin text-[#171412]">
           ↓
         </div>
 
         <p
-          className="mt-12 max-w-[920px] text-center text-[#171412]"
+          className="mt-8 md:mt-12 max-w-[920px] text-center text-[#171412] px-4 md:px-0 text-[20px] md:text-[29px] leading-[1.4] md:leading-[34px]"
           style={{
-            fontSize: '29px',
-            lineHeight: '34px',
-            letterSpacing: '0px',
             fontFamily: 'PP Neue Montreal, sans-serif',
           }}
         >

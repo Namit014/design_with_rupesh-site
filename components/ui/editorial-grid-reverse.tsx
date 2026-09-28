@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function EditorialGridReverse() {
   return (
-    <section className="editorial-grid-wrapper w-full bg-[#F3F0EA] px-8 pb-4 pt-0">
+    <section className="editorial-grid-wrapper w-full bg-[#F3F0EA] px-4 md:px-8 pb-4 pt-0">
       <div className="editorial-grid-layout mx-auto grid max-w-[1180px] grid-cols-12 gap-4">
 
         {/* LEFT CARD (Large Image) - Swapped from Right */}
@@ -146,7 +146,7 @@ export default function EditorialGridReverse() {
                 className="mt-6 max-w-[540px] text-white"
                 style={{
                   fontFamily: "PP Neue Montreal, sans-serif",
-                  fontSize: "26px",
+                  fontSize: "clamp(20px, 6vw, 26px)",
                   lineHeight: "1.08",
                   letterSpacing: "-1.4px",
                 }}
