@@ -34,7 +34,7 @@ export default function CinematicZoom() {
           scrollTrigger: {
             trigger: immersiveSectionRef.current,
             start: "top top",
-            end: "+=2600",
+            end: isMobile ? "+=1000" : "+=2600",
             scrub: 1,
             pin: true,
             anticipatePin: 1,
