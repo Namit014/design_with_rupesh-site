@@ -12,6 +12,7 @@ interface BoldCtaSectionProps {
 export default function BoldCtaSection({}: BoldCtaSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,8 +32,11 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
       });
-      alert('Booking saved locally to submissions.json!');
-      setIsModalOpen(false);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setIsModalOpen(false);
+      }, 3000);
     } catch (err) {
       alert('Failed to submit booking.');
     } finally {
@@ -145,43 +149,59 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
                   <Calendar size={16} /> Booking Details
                 </h4>
                 
-                <form className="flex flex-col gap-3 md:gap-4 mt-2" onSubmit={handleBookingSubmit}>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Full Name"
-                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
-                    style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
-                  />
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Email Address"
-                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
-                    style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
-                  />
-                  <input
-                    name="phone"
-                    type="tel"
-                    required
-                    placeholder="Phone Number"
-                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
-                    style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
-                  />
-                  <input
-                    name="date"
-                    type="date"
-                    required
-                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
-                    style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
-                  />
+                {isSuccess ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center flex-1 text-center h-full gap-4 mt-2"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-2">
+                      <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-black">Booking Confirmed</h3>
+                    <p className="text-black/60 text-sm max-w-[250px]">Your slot has been reserved. We'll be in touch shortly!</p>
+                  </motion.div>
+                ) : (
+                  <form className="flex flex-col gap-3 md:gap-4 mt-2" onSubmit={handleBookingSubmit}>
+                    <input
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Full Name"
+                      className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                      style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
+                    />
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="Email Address"
+                      className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                      style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
+                    />
+                    <input
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="Phone Number"
+                      className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                      style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
+                    />
+                    <input
+                      name="date"
+                      type="date"
+                      required
+                      className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
+                      style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
+                    />
 
-                  <button type="submit" disabled={isSubmitting} className="mt-6 md:mt-10 w-full bg-[#171412] text-white py-3 md:py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10 shrink-0 disabled:opacity-50">
-                    {isSubmitting ? 'Confirming...' : 'Confirm Booking'}
-                  </button>
-                </form>
+                    <button type="submit" disabled={isSubmitting} className="mt-6 md:mt-10 w-full bg-[#171412] text-white py-3 md:py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10 shrink-0 disabled:opacity-50">
+                      {isSubmitting ? 'Confirming...' : 'Confirm Booking'}
+                    </button>
+                  </form>
+                )}
               </div>
             </motion.div>
           </motion.div>
