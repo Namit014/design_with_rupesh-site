@@ -13,7 +13,7 @@ const testimonials = [
     id: 1,
     name: "Rohan",
     role: "CMO @Qonnect",
-    image: "https://i.pravatar.cc/150?u=rohan",
+    image: "https://i.pravatar.cc/150?img=11",
     text:
       "We worked together on backend and product software. Everything shipped fast and the collaboration was seamless.",
     rotation: "-6deg",
@@ -24,7 +24,7 @@ const testimonials = [
     id: 2,
     name: "Tushar Pandey",
     role: "CEO @Weekends Films",
-    image: "https://i.pravatar.cc/150?u=tushar",
+    image: "https://i.pravatar.cc/150?img=12",
     text:
       "We love the way The Rebirth made our brand come alive. Their strategic approach goes far beyond just design and software.",
     rotation: "7deg",
@@ -35,7 +35,7 @@ const testimonials = [
     id: 3,
     name: "Aditya",
     role: "CEO @PDF",
-    image: "https://i.pravatar.cc/150?u=aditya",
+    image: "https://i.pravatar.cc/150?img=13",
     text:
       "The Rebirth helped us with refactoring and platform stability. The boost in perception was immediate.",
     rotation: "-5deg",
@@ -46,7 +46,7 @@ const testimonials = [
     id: 4,
     name: "Sneha",
     role: "Founder @Sowbeez",
-    image: "https://i.pravatar.cc/150?u=sneha",
+    image: "https://i.pravatar.cc/150?img=5",
     text:
       "We faced a challenge with positioning and The Rebirth exceeded expectations with clarity and execution.",
     rotation: "6deg",
@@ -57,7 +57,7 @@ const testimonials = [
     id: 5,
     name: "Karthik",
     role: "Founder @Qonnect",
-    image: "https://i.pravatar.cc/150?u=karthik",
+    image: "https://i.pravatar.cc/150?img=15",
     text:
       "Amazing experience with The Rebirth. Professional, responsive, and technical. I couldn’t recommend them more.",
     rotation: "-4deg",

@@ -151,14 +151,14 @@ export default function EditorialGridReverse() {
                   letterSpacing: "-1.4px",
                 }}
               >
-                Their modern web development skills are unmatched. The level of craftsmanship and attention to detail from the team exceeded our expectations.
+                Their modern web development skills are unmatched. The level of craftsmanship and attention to detail from the team exceeded our expectations. The entire process was incredibly smooth from start to finish, and they delivered a final product that truly resonates with our audience. We couldn't be happier with the results and the ongoing support we've received!
               </p>
             </div>
 
             <div className="mt-12 flex items-end justify-between">
               <div className="flex items-center gap-4">
                 <img
-                  src="https://i.pravatar.cc/100?u=anjum"
+                  src="https://i.pravatar.cc/150?img=12"
                   alt="Anjum Mujawar"
                   className="h-[56px] w-[56px] rounded-full object-cover"
                 />

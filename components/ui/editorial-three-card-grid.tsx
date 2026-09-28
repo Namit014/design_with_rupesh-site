@@ -90,7 +90,7 @@ export default function EditorialThreeCardGrid() {
                 letterSpacing: "2px",
               }}
             >
-              Testimonial
+              Tech
             </div>
 
             <p
@@ -102,13 +102,13 @@ export default function EditorialThreeCardGrid() {
                 letterSpacing: "-1.4px",
               }}
             >
-              The Rebirth quickly identified our needs and proposed highly relevant technical directions. We’re thrilled with the platform they created for GoStan.
+              We love the way The Rebirth made our brand come alive.
             </p>
 
             <div className="mt-12 flex items-end justify-between">
               <div className="flex items-center gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+                  src="https://i.pravatar.cc/150?u=tushar"
                   alt=""
                   className="h-[56px] w-[56px] rounded-full object-cover"
                 />
@@ -121,16 +121,12 @@ export default function EditorialThreeCardGrid() {
                       fontSize: "18px",
                     }}
                   >
-                    Alexis Gendreau
-                  </div>
-
-                  <div className="text-sm text-white/60">
-                    Founder @GoStan
+                    Tushar Pandey
                   </div>
                 </div>
               </div>
 
-              <button className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70">
+              <button onClick={() => window.dispatchEvent(new Event('open-booking-modal'))} className="flex items-center gap-4 text-white transition-opacity duration-300 hover:opacity-70">
                 <span
                   style={{
                     fontFamily: "PP Neue Montreal, sans-serif",
@@ -199,7 +195,7 @@ export default function EditorialThreeCardGrid() {
               >
                 E-COMMERCE
                 <br />
-                2023
+                2026
               </span>
             </div>
           </motion.div>
