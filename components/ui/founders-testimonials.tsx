@@ -183,12 +183,11 @@ export default function SemiCircularCardAnimation() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div 
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-black/10 text-xl font-bold uppercase"
-                  style={{ color: item.textColor }}
-                >
-                  {item.name.charAt(0)}
-                </div>
+                <img
+                  src="https://i.pinimg.com/1200x/9b/5c/26/9b5c2689ab13f305bb89a8ed99e336d8.jpg"
+                  alt={item.name}
+                  className="h-14 w-14 rounded-full object-cover"
+                />
 
                 <div>
                   <div className="text-[18px] font-semibold">

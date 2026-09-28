@@ -107,9 +107,11 @@ export default function EditorialThreeCardGrid() {
 
             <div className="mt-12 flex items-end justify-between">
               <div className="flex items-center gap-4">
-                <div className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-white/20 text-xl font-bold uppercase text-white">
-                  T
-                </div>
+                <img
+                  src="https://i.pinimg.com/1200x/9b/5c/26/9b5c2689ab13f305bb89a8ed99e336d8.jpg"
+                  alt=""
+                  className="h-[56px] w-[56px] rounded-full object-cover"
+                />
 
                 <div>
                   <div
