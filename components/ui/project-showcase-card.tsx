@@ -16,7 +16,7 @@ export default function ProjectShowcaseCard({
   image,
   video,
   title = "YANTRAA.TECH",
-  year = "TECH",
+  year,
   cta = "DISCOVER CASE",
   href = "#",
 }: ProjectShowcaseCardProps) {
@@ -25,15 +25,17 @@ export default function ProjectShowcaseCard({
       <Link href={href} className="block w-full group/link">
         {/* Header Above Card */}
         <div className="flex w-full max-w-[1180px] mx-auto items-end justify-between pb-4">
-          <div className="flex items-baseline gap-4">
-            <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px]" style={{ fontFamily: "Youth, sans-serif" }}>
+          <div className="flex items-baseline gap-4 overflow-hidden">
+            <h3 className="uppercase text-[#111111] text-[26px] min-[380px]:text-[32px] md:text-[56px] leading-[0.8] font-black tracking-[-1px] md:tracking-[-2px] truncate" style={{ fontFamily: "Youth, sans-serif" }}>
               {title}
             </h3>
-            <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest">
-              {year}
-            </span>
+            {year && (
+              <span className="uppercase text-[#111111]/50 font-bold text-[14px] md:text-[16px] tracking-widest shrink-0">
+                {year}
+              </span>
+            )}
           </div>
-          <div className="hidden md:flex items-center gap-2 uppercase text-[#111111] font-bold text-[16px] tracking-[-0.3px] group-hover/link:underline underline-offset-4">
+          <div className="hidden md:flex items-center gap-2 uppercase text-[#111111] font-bold text-[16px] tracking-[-0.3px] group-hover/link:underline underline-offset-4 shrink-0">
             {cta}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
           </div>
