@@ -78,7 +78,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-4xl bg-[#F3F0EA] text-[#171412] rounded-[24px] overflow-hidden flex flex-col md:flex-row shadow-2xl"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F3F0EA] text-[#171412] rounded-[24px] flex flex-col md:flex-row shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -90,17 +90,17 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
               </button>
 
               {/* Left Column */}
-              <div className="w-full md:w-1/2 p-8 md:p-14 bg-white/50 border-r border-black/5 flex flex-col justify-between">
+              <div className="w-full md:w-1/2 p-6 md:p-14 bg-white/50 border-r border-black/5 flex flex-col justify-between shrink-0">
                 <div>
-                  <h3 className="text-[32px] md:text-[46px] leading-[0.95] tracking-[-2px] font-black uppercase" style={{ fontFamily: 'Youth, sans-serif' }}>
+                  <h3 className="text-[28px] md:text-[46px] leading-[0.95] tracking-[-2px] font-black uppercase" style={{ fontFamily: 'Youth, sans-serif' }}>
                     Let's discuss your next big thing.
                   </h3>
-                  <p className="mt-6 text-[#171412]/60 font-medium text-lg leading-snug" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}>
+                  <p className="mt-4 md:mt-6 text-[#171412]/60 font-medium text-[15px] md:text-lg leading-snug" style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}>
                     Select a time to connect directly with our engineering team. We typically respond instantly to confirm your slot.
                   </p>
                 </div>
                 
-                <div className="mt-12 flex items-center gap-4">
+                <div className="mt-8 md:mt-12 flex items-center gap-4 hidden md:flex">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
                     <img src="https://i.pravatar.cc/100?u=jeremy" alt="Jeremy" className="w-full h-full object-cover" />
                   </div>
@@ -112,38 +112,38 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
               </div>
 
               {/* Right Column: Form */}
-              <div className="w-full md:w-1/2 p-8 md:p-14 flex flex-col">
-                <h4 className="text-[12px] font-bold tracking-[2px] uppercase mb-8 flex items-center gap-3 text-black/40">
+              <div className="w-full md:w-1/2 p-6 md:p-14 flex flex-col shrink-0">
+                <h4 className="text-[11px] md:text-[12px] font-bold tracking-[2px] uppercase mb-4 md:mb-8 flex items-center gap-3 text-black/40">
                   <Calendar size={16} /> Booking Details
                 </h4>
                 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3 md:gap-4">
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                     style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
                   />
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                     style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
                   />
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
                     style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
                   />
                   <input
                     type="date"
-                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
+                    className="w-full p-3 md:p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
                     style={{ fontFamily: 'PP Neue Montreal, sans-serif' }}
                   />
                 </div>
 
-                <button className="mt-10 w-full bg-[#171412] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10">
+                <button className="mt-6 md:mt-10 w-full bg-[#171412] text-white py-3 md:py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10 shrink-0">
                   Confirm Booking
                 </button>
               </div>
