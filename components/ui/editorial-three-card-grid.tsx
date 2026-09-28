@@ -19,23 +19,33 @@ export default function EditorialThreeCardGrid() {
           >
             {/* TOP BAR */}
             <motion.div
-              initial={{ width: 180, height: 48 }}
-              whileHover={{ width: "calc(100% - 2rem)", height: 72 }}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              variants={{
+              rest: { width: "auto", height: 48 },
+              hover: { width: "calc(100% - 2rem)", height: 72 }
+            }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
             >
               <div className="flex items-center gap-2 text-white">
-                <h3
+                <motion.h3
+                  className="whitespace-nowrap"
+                  variants={{
+                    rest: { fontSize: "16px" },
+                    hover: { fontSize: "26px" }
+                  }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     fontFamily: "Youth, sans-serif",
-                    fontSize: "26px",
                     lineHeight: 1,
                     letterSpacing: "-1px",
                     fontWeight: 900,
                   }}
                 >
-                  SOWBEZ
-                </h3>
+                  MODERN IDENTITY
+                </motion.h3>
 
                 <span
                   className="uppercase opacity-70"
@@ -53,13 +63,12 @@ export default function EditorialThreeCardGrid() {
               </div>
             </motion.div>
 
-            {/* VIDEO BACKGROUND */}
+            {/* IMAGE BACKGROUND */}
             <div className="absolute inset-0 overflow-hidden">
-              <iframe
-                src="https://player.vimeo.com/video/1097424040?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-                className="absolute inset-0 h-full w-full scale-[1.25] object-cover pointer-events-none"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-view"
+              <img
+                src="/insta logo.png"
+                alt="Sowbez"
+                className="absolute inset-0 h-full w-full object-cover pointer-events-none"
               />
             </div>
           </motion.div>
@@ -93,7 +102,7 @@ export default function EditorialThreeCardGrid() {
                 letterSpacing: "-1.4px",
               }}
             >
-              Brand Appart quickly identified our needs and proposed highly relevant creative directions. We’re thrilled with the branding they created for GoStan.
+              The Rebirth quickly identified our needs and proposed highly relevant technical directions. We’re thrilled with the platform they created for GoStan.
             </p>
 
             <div className="mt-12 flex items-end justify-between">
@@ -151,23 +160,33 @@ export default function EditorialThreeCardGrid() {
         >
           {/* TOP BAR */}
           <motion.div
-            initial={{ width: 180, height: 48 }}
-            whileHover={{ width: "calc(100% - 2rem)", height: 72 }}
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            variants={{
+              rest: { width: "auto", height: 48 },
+              hover: { width: "calc(100% - 2rem)", height: 72 }
+            }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
           >
             <div className="flex items-center gap-2 text-white">
-              <h3
+              <motion.h3
+                className="whitespace-nowrap"
+                variants={{
+                  rest: { fontSize: "16px" },
+                  hover: { fontSize: "26px" }
+                }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: "Youth, sans-serif",
-                  fontSize: "26px",
                   lineHeight: 1,
                   letterSpacing: "-1px",
                   fontWeight: 900,
                 }}
               >
-                FORBES
-              </h3>
+                MODERN ECOM
+              </motion.h3>
 
               <span
                 className="uppercase opacity-70"
@@ -178,7 +197,7 @@ export default function EditorialThreeCardGrid() {
                   letterSpacing: "1px",
                 }}
               >
-                WEB 3.0
+                E-COMMERCE
                 <br />
                 2023
               </span>
@@ -187,11 +206,13 @@ export default function EditorialThreeCardGrid() {
 
           {/* VIDEO BACKGROUND */}
           <div className="absolute inset-0 h-full overflow-hidden">
-            <iframe
-              src="https://player.vimeo.com/video/1089995529?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-              className="absolute inset-0 h-full w-full scale-[1.25] object-cover pointer-events-none"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-view"
+            <video
+              src="/trb1.mp4"
+              className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           </div>
         </motion.div>

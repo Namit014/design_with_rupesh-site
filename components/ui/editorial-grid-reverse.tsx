@@ -33,7 +33,7 @@ export default function EditorialGridReverse() {
                   fontWeight: 900,
                 }}
               >
-                MISTRAL
+                GENH SITE
               </h3>
 
               <span
@@ -57,7 +57,7 @@ export default function EditorialGridReverse() {
             <motion.img
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.8 }}
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop"
+              src="/genh-site.png"
               alt=""
               className="h-full w-full object-cover"
             />
@@ -111,23 +111,14 @@ export default function EditorialGridReverse() {
               </div>
             </motion.div>
 
-            {/* ARTWORK */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="text-[#32CD32]"
-                style={{
-                  fontFamily: "Youth, sans-serif",
-                  fontSize: "140px",
-                  lineHeight: 1,
-                  fontWeight: 900,
-                }}
-              >
-                Z
-              </div>
+            {/* IMAGE */}
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src="/ChatGPT Image Sep 27, 2026, 10_08_28 PM.png"
+                alt="Zenly"
+                className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+              />
             </div>
-
-            <div className="absolute bottom-0 left-0 h-[180px] w-[180px] rounded-tr-full bg-green-200" />
-            <div className="absolute top-0 right-0 h-[140px] w-[140px] rounded-bl-full bg-green-500" />
           </motion.div>
 
           {/* TESTIMONIAL CARD */}

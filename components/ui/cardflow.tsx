@@ -12,11 +12,11 @@ if (typeof window !== "undefined") {
 const cardData = [
   {
     id: "01",
-    title: "Branding that drives\nconversion & funding.",
+    title: "Web apps that drive\nconversion & scale up.",
     description:
-      "We clarify your positioning, define a distinctive tone of voice, and build a visual system that works across acquisition and product. Each sprint ships a robust logo, pragmatic brand guidelines, and a social kit so you can launch fast. The goal is simple: perceived value up.",
+      "We clarify your architecture, define a distinctive technical stack, and build a scalable system that works across mobile and web platforms. Each sprint ships a robust code, pragmatic api integrations, and a testing kit so you can launch fast. The goal is simple: technical debt down.",
     testimonial:
-      "Working with Brand Appart has been an absolute pleasure. Beyond their creativity and professionalism, there's a real sense of kindness and care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. I was truly impressed by their reliability, flexibility, and collaborative spirit. I couldn't recommend them more!",
+      "Working with The Rebirth has been an absolute pleasure. Beyond their code quality and professionalism, there's a real sense of kindness and care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. I was truly impressed by their reliability, flexibility, and collaborative spirit. I couldn't recommend them more!",
     author: "Jérémy Bendayan",
     role: "Co-founder & COO @Jaws Group",
     color: "#3d2fa9",
@@ -31,11 +31,11 @@ const cardData = [
     id: "02",
     title: "Product experiences\nusers adopt & keep using",
     description:
-      "We start from business goals, map the critical journeys, and prototype what actually moves the needle. Every sprint ships clear flows, a reusable UI library, and a dev-ready. Expect time-to-value down, UX friction down, retention/NPS up.",
+      "We start from business goals, map the critical systems, and prototype what actually moves the needle. Every sprint ships clean code, a reusable UI library, and a prod-ready app. Expect time-to-value down, UX friction down, retention/NPS up.",
     testimonial:
-      "A huge thank you to the entire Brand Appart team for your outstanding work on our rebranding! We're thrilled to have you as an integral part of the Incard team, and we can't wait to reveal what's coming next.",
+      "A huge thank you to the entire The Rebirth team for your outstanding work on our rebranding! We're thrilled to have you as an integral part of the Yantraa.tech team, and we can't wait to reveal what's coming next.",
     author: "Théo Cesarin",
-    role: "CEO & Co-Founder @Incard",
+    role: "CEO & Co-Founder @Yantraa.tech",
     color: "#ff7722",
     gallery: [
       "https://images.unsplash.com/photo-1586717791821-3f44a563cc4c?w=400&h=400&fit=crop",
@@ -45,11 +45,11 @@ const cardData = [
   },
   {
     id: "03",
-    title: "Web Design for growing\nteams & business.",
+    title: "Web Dev for growing\nteams & businesses.",
     description:
-      "We align messaging, page architecture, and UI. You get clear structure, sections. The site loads fast, tells the right story, and pushes to action without dev firefighting. Your team gets a scalable base they can evolve without calling us for every change.",
+      "We align backend, page architecture, and UI. You get clear structure, sections. The site loads fast, tells the right story, and pushes to action without dev firefighting. Your team gets a scalable base they can evolve without calling us for every change.",
     testimonial:
-      "I've worked with Brand Appart on multiple projects — website development, landing pages for branding, and PowerPoint presentations. I love how flexible, fast, and professional the team is.",
+      "I've worked with The Rebirth on multiple projects — website development, landing pages for branding, and PowerPoint presentations. I love how flexible, fast, and professional the team is.",
     author: "Alexis Botaya",
     role: "Managing director @Sound Experience",
     color: "#ff3d33",
@@ -61,11 +61,11 @@ const cardData = [
   },
   {
     id: "04",
-    title: "Investor-proof decks\nthat raise faster.",
+    title: "Investor-proof apps\nthat scale faster.",
     description:
-      "We craft the narrative that gets meetings and a precise ask. Design serves the story: readable numbers, rhythm across slides, and versions for teaser/one-pager. Your deck can be pitched in 5 minutes, read solo, and generates faster responses.",
+      "We craft the interfaces that get users and a precise ask. Frontend serves the user: readable numbers, rhythm across screens, and versions for mobile/web-browser. Your app can be loaded in 5 seconds, read solo, and generates faster responses.",
     testimonial:
-      "The deck was a game changer for our seed round. The clarity and design helped us close in record time. Brand Appart really understands how to tell a financial story through visuals.",
+      "The deck was a game changer for our seed round. The clarity and code helped us close in record time. The Rebirth really understands how to tell a financial story through software.",
     author: "Sara Jenkins",
     role: "Founder @FinTechly",
     color: "#785f47",

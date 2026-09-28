@@ -9,16 +9,13 @@ import ScrollBatchGallery from "@/components/ui/scroll-batch-gallery";
 // --- Shared Navigation Components ---
 const Logo = () => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
     className="fixed top-[28px] left-[28px] z-50 group cursor-pointer"
   >
     <Link href="/">
-      <div className="relative w-[72px] h-[72px] rounded-full border border-accent/30 flex items-center justify-center bg-[#4F46E5] overflow-hidden">
-        <div className="absolute inset-0 border-[1.5px] border-accent rounded-full scale-95 group-hover:scale-100 transition-transform duration-500" />
-        <span className="text-white font-bold text-xl relative z-10">RK</span>
-      </div>
+      <div className="text-[26px] font-black leading-[1] tracking-tight text-white hover:opacity-80 transition-opacity">The Rebirth<br />Company</div>
     </Link>
   </motion.div>
 );
@@ -65,7 +62,7 @@ const Footer = () => {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
-        timeZone: 'Europe/Paris'
+        timeZone: 'Asia/Kolkata'
       }));
     }, 1000);
     return () => clearInterval(timer);
@@ -79,8 +76,8 @@ const Footer = () => {
         transition={{ duration: 1, delay: 1 }}
         className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col pointer-events-none"
       >
-        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">Brand<br />Apart</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">FR</span>
+        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">The Rebirth<br />Company</span>
+        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">GLOBAL</span>
       </motion.div>
 
       <motion.div
@@ -89,7 +86,7 @@ const Footer = () => {
         transition={{ duration: 1, delay: 1 }}
         className="hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 pointer-events-none text-white"
       >
-        Paris, France {time}
+        Mumbai, India {time}
       </motion.div>
     </>
   );
@@ -99,7 +96,6 @@ export default function ShowcasePage() {
   return (
     <div className="relative w-full bg-black min-h-screen overflow-x-hidden">
       {/* UI Elements */}
-      <Logo />
       <FloatingNav />
       <Footer />
 

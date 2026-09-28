@@ -11,16 +11,13 @@ import WaabiScroll from '@/components/ui/waabi-scroll';
 // --- Shared Navigation Components ---
 const Logo = () => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
     className="fixed top-[28px] left-[28px] z-50 group cursor-pointer"
   >
     <Link href="/">
-      <div className="relative w-[72px] h-[72px] rounded-full border border-accent/30 flex items-center justify-center bg-[#4F46E5] overflow-hidden">
-        <div className="absolute inset-0 border-[1.5px] border-accent rounded-full scale-95 group-hover:scale-100 transition-transform duration-500" />
-        <span className="text-white font-bold text-xl relative z-10">RK</span>
-      </div>
+      <div className="text-[26px] font-black leading-[1] tracking-tight text-white hover:opacity-80 transition-opacity">The Rebirth<br />Company</div>
     </Link>
   </motion.div>
 );
@@ -95,7 +92,7 @@ const Footer = () => {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
-        timeZone: 'Europe/Paris'
+        timeZone: 'Asia/Kolkata'
       }));
     }, 1000);
     return () => clearInterval(timer);
@@ -109,8 +106,8 @@ const Footer = () => {
         transition={{ duration: 1, delay: 1 }}
         className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex flex-col pointer-events-none"
       >
-        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">Brand<br />Apart</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">FR</span>
+        <span className="text-[26px] font-black leading-[1] tracking-tight text-white">The Rebirth<br />Company</span>
+        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-white">GLOBAL</span>
       </motion.div>
 
       <motion.div
@@ -119,7 +116,7 @@ const Footer = () => {
         transition={{ duration: 1, delay: 1 }}
         className="hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 pointer-events-none text-white"
       >
-        Paris, France {time}
+        Mumbai, India {time}
       </motion.div>
     </>
   );
@@ -131,7 +128,6 @@ export default function AboutPage() {
   return (
     <div className="relative w-full bg-[#171412] selection:bg-accent selection:text-white min-h-screen overflow-x-hidden overflow-y-visible">
       {/* Navigation & UI */}
-      <Logo />
       <TopRightButton />
       <FloatingNav />
       <ScrollIndicator />
@@ -145,9 +141,9 @@ export default function AboutPage() {
             <h1
               className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
             >
-              Result
+              Digital
               <br />
-              Driven
+              Rebirth
               <br />
               Design
             </h1>
@@ -166,37 +162,36 @@ export default function AboutPage() {
             <h2
               className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
             >
-              Art
+              Code
               <br />
-              First
+              Meets
               <br />
-              Always
+              Design
             </h2>
           </div>
           <hr className="my-[2vw] border-none border-t border-white/20" />
           <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-            A global community built for artists, by artists. We're rewriting the rules of how
-            creative work gets seen, shared, and valued.
+            We bridge the gap between stunning visual aesthetics and bulletproof engineering. 
+            We build platforms that look beautiful and run blazingly fast.
           </p>
           <hr className="my-[2vw] border-none border-t border-white/20" />
           <div className="flex flex-wrap gap-[3vw]">
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Discovery</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Performance</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Human-curated collections that put real eyes on real art. No algorithms deciding your
-                fate.
+                Every millisecond counts. We optimize architectures for peak performance and scale.
               </p>
             </div>
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Community</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Aesthetics</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Find collaborators, mentors, and fellow creatives who push your work forward.
+                Premium, category-defining design systems that set you apart from the competition.
               </p>
             </div>
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Value</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Conversion</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Fair pricing. Transparent commissions. Artists keep what they earn. Always.
+                We engineer user journeys that transform passive visitors into active believers.
               </p>
             </div>
           </div>
@@ -220,7 +215,7 @@ export default function AboutPage() {
           </div>
           <hr className="my-[2vw] border-none border-t border-black/20" />
           <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed text-[#171412]">
-            Three steps. Zero complexity. Your creative career starts moving the moment you sign up.
+            End-to-end execution. From the first wireframe to the final deployment, we own the entire lifecycle of your digital product.
           </p>
           <hr className="my-[2vw] border-none border-t border-black/20" />
           <div className="flex flex-wrap gap-[3vw]">
@@ -252,35 +247,36 @@ export default function AboutPage() {
             <h2
               className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
             >
-              Future
+              Build
               <br />
-              Of
+              To
               <br />
-              Design
+              Scale
             </h2>
           </div>
           <hr className="my-[2vw] border-none border-t border-white/20" />
           <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-            We're not just building a platform. We're building a movement.
+            We're not just building websites; we're architecting digital ecosystems designed for massive scale. 
+            The internet is evolving, and we make sure you lead the charge.
           </p>
           <hr className="my-[2vw] border-none border-t border-white/20" />
           <div className="flex flex-wrap gap-[3vw]">
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">10K+</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Innovation</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Artists from 80 countries already shaping the future with us.
+                Leveraging the bleeding edge of web technologies to future-proof your digital presence.
               </p>
             </div>
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">$2M+</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Growth</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Paid directly to creators in our first year. Zero hidden fees.
+                Scalable architectures that seamlessly handle millions of concurrent users.
               </p>
             </div>
             <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">100%</p>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider">Partnership</p>
               <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Artist-owned. Every decision we make starts with the creator.
+                We act as your dedicated engineering arm, completely invested in your long-term success.
               </p>
             </div>
           </div>

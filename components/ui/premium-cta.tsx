@@ -6,75 +6,76 @@ import { Phone } from 'lucide-react';
 
 export default function PremiumCta() {
   return (
-    <section className="relative w-full min-h-screen bg-black flex flex-col items-center justify-between py-12 px-6 overflow-hidden selection:bg-[#FF7722] selection:text-white">
+    <section className="relative w-full min-h-screen bg-[#0B0B0B] text-[#F8F8F8] flex flex-col items-center justify-between py-12 px-6 md:px-12 selection:bg-white selection:text-black overflow-hidden">
       {/* --- Top Bar --- */}
-      <div className="w-full flex justify-center z-10">
+      <div className="w-full flex justify-center z-20">
         <div className="flex items-center gap-2">
           {['IG', 'X', 'LK', 'BE'].map((social) => (
-            <motion.a
+            <a
               key={social}
               href="#"
-              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
-              className="px-4 py-2 border border-white/20 rounded-md text-[11px] font-bold text-white tracking-widest uppercase transition-colors flex items-center justify-center min-w-[50px]"
+              className="px-4 py-2 border border-white/20 rounded-md text-[11px] font-bold text-white tracking-widest uppercase hover:bg-white/10 transition-colors flex items-center justify-center min-w-[50px]"
             >
               {social}
-            </motion.a>
+            </a>
           ))}
         </div>
       </div>
 
-      {/* --- Main Body --- */}
-      <div className="flex flex-col items-center justify-center text-center max-w-7xl z-10">
-        <motion.h2 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+      {/* --- Main Hero Typography Poster Composition --- */}
+      <div className="w-full max-w-[1100px] mx-auto flex flex-col items-center justify-center flex-1 z-20 my-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[clamp(3rem,12vw,10rem)] font-black leading-[0.85] tracking-tighter text-white"
+          className="w-full flex flex-col items-center text-center"
         >
-          Make every <br />
-          <span className="bg-gradient-to-r from-[#FF7722] via-[#FFAA77] to-[#FF7722] bg-clip-text text-transparent animate-gradient-x">
-            pixel
-          </span> pay for <br />
-          <span className="bg-gradient-to-r from-[#FF7722] via-[#FFAA77] to-[#FF7722] bg-clip-text text-transparent animate-gradient-x">
-            itself!
-          </span>
-        </motion.h2>
+          {/* Main Hero Headline */}
+          <div
+            className="flex flex-col items-center text-[#F8F8F8] font-bold select-none"
+            style={{
+              fontFamily: 'Youth, "Plus Jakarta Sans", system-ui, sans-serif',
+              fontSize: 'clamp(72px, 9vw, 126px)',
+              lineHeight: 0.82,
+              letterSpacing: '-3.8px',
+              fontWeight: 700,
+              textTransform: 'none',
+            }}
+          >
+            {/* Lines 1 & 2: Optically aligned left edges */}
+            <div className="flex flex-col items-start w-fit">
+              <span className="whitespace-nowrap block">Make every</span>
+              <span className="whitespace-nowrap block">pixel pay for</span>
+            </div>
 
-        <motion.div 
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-           className="mt-16 flex items-center gap-4 group cursor-pointer"
-        >
-          <span className="text-white text-[11px] font-black tracking-[0.2em] uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-            Get your quote in 24h
-          </span>
-          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg">
-            <Phone size={16} fill="black" className="text-black" />
+            {/* Line 3: Centered underneath lines 1 & 2 */}
+            <span className="whitespace-nowrap block text-center">itself!</span>
           </div>
+
+          {/* --- Sub CTA --- */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 md:mt-16 flex items-center gap-3 cursor-pointer group"
+          >
+            <span className="text-[#F8F8F8] text-[11px] md:text-[13px] font-bold tracking-[2px] uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+              GET YOUR QUOTE IN 24H
+            </span>
+            <div className="w-9 h-9 rounded-full bg-[#F8F8F8] flex items-center justify-center transition-transform group-hover:scale-105 shadow-md">
+              <Phone size={14} className="fill-black text-black" />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* --- Bottom Bar --- */}
-      <div className="w-full flex justify-center z-10">
-        <span className="text-[10px] font-bold tracking-widest uppercase text-white/30">
+      {/* --- Bottom Footer Bar --- */}
+      <div className="w-full flex justify-center z-20">
+        <span className="text-[10px] font-bold tracking-widest uppercase text-white/40">
           ©2026 Brand Appart
         </span>
       </div>
-
-      {/* --- Aesthetic Elements --- */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(255,119,34,0.06)_0%,transparent_55%)] pointer-events-none" />
-      
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 6s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }
+

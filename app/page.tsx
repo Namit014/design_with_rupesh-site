@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Home, Briefcase, Smile, Mail, Plus } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { Home, Briefcase, Smile, Mail, Plus, Building, Target, FileText, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import CinematicZoom from "@/components/ui/cinematic-zoom";
 import FeaturedWorkSection from '@/components/ui/featured-work-section';
@@ -11,34 +11,33 @@ import EditorialThreeCardGrid from '@/components/ui/editorial-three-card-grid';
 import EditorialGridReverse from '@/components/ui/editorial-grid-reverse';
 import CircularGallery from '@/components/ui/circular-flip-card-gallery';
 import CardFlow from '@/components/ui/cardflow';
+import Services from '@/components/ui/services';
 import FoundersTestimonials from "@/components/ui/founders-testimonials";
 import BoldCtaSection from '@/components/ui/bold-cta-section';
 
+
 // --- Components ---
 
-const Logo = () => (
+const Logo = ({ hidden }: { hidden?: boolean }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed top-[28px] left-[28px] z-50 group cursor-pointer"
+    className={`fixed top-[28px] left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
   >
-    <div className="relative w-[72px] h-[72px] rounded-full border border-accent/30 flex items-center justify-center bg-[#4F46E5] overflow-hidden">
-      <div className="absolute inset-0 border-[1.5px] border-accent rounded-full scale-95 group-hover:scale-100 transition-transform duration-500" />
-      <span className="text-white font-bold text-xl relative z-10">RK</span>
-    </div>
+    <div className="text-[26px] font-black leading-[1] tracking-tight text-[#171412]">The Rebirth<br />Company</div>
   </motion.div>
 );
 
 const NavButton = ({ icon: Icon, active = false, href }: { icon: any, active?: boolean, href?: string }) => {
   const content = (
     <motion.button
-      whileHover={{ y: -3, backgroundColor: 'rgba(23, 20, 18, 0.08)' }}
+      whileHover={{ y: -3, backgroundColor: 'rgba(23, 20, 18, 0.12)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors ${active ? 'bg-[#F3F0EA] shadow-sm' : 'bg-white/45 backdrop-blur-[2px]'
+      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors shadow-sm ${active ? 'bg-[#111111] text-white' : 'bg-[#E5E3DC] text-[#171412]/60 hover:bg-[#111111] hover:text-white'
         }`}
     >
-      <Icon size={20} className="md:w-6 md:h-6 text-[#171412]" strokeWidth={1.5} />
+      <Icon size={20} className="md:w-6 md:h-6" strokeWidth={2} />
     </motion.button>
   );
 
@@ -48,12 +47,12 @@ const NavButton = ({ icon: Icon, active = false, href }: { icon: any, active?: b
   return content;
 };
 
-const FloatingNav = () => (
+const FloatingNav = ({ hidden }: { hidden?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-[12px] md:gap-[14px]"
+    animate={{ opacity: hidden ? 0 : 1, x: hidden ? -40 : 0 }}
+    transition={{ duration: 0.8, delay: hidden ? 0 : 0.4, ease: [0.16, 1, 0.3, 1] as any }}
+    className={`fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-[12px] md:gap-[14px] ${hidden ? 'pointer-events-none' : ''}`}
   >
     <NavButton icon={Home} active href="/" />
     <NavButton icon={Briefcase} href="/showcase" />
@@ -62,29 +61,38 @@ const FloatingNav = () => (
   </motion.div>
 );
 
-const ScrollIndicator = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1, delay: 0.8 }}
-    className="fixed right-[38px] top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4"
-  >
-    <div className="relative">
-      <div className="w-[14px] h-[14px] rounded-full border border-black/30 flex items-center justify-center">
-        <div className="w-[4px] h-[4px] rounded-full bg-black/60" />
-      </div>
-      <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-[1px] h-[220px] bg-black/15" />
-    </div>
-  </motion.div>
-);
+const ScrollIndicator = ({ hidden }: { hidden?: boolean }) => {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 220]);
 
-const TopRightButton = () => (
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: hidden ? 0 : 1 }}
+      transition={{ duration: 1, delay: hidden ? 0 : 0.8 }}
+      className="fixed right-[38px] top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4"
+    >
+      <div className="relative h-[220px] w-[14px]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[220px] bg-black/15" />
+        <motion.div 
+          style={{ y }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[14px] h-[14px] rounded-full border border-black/30 bg-[#F3F0EA] flex items-center justify-center z-10"
+        >
+          <div className="w-[4px] h-[4px] rounded-full bg-black/60" />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+const TopRightButton = ({ hidden }: { hidden?: boolean }) => (
   <motion.button
+    onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
     initial={{ opacity: 0, y: -10 }}
-    animate={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.03 }}
-    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed top-[30px] right-[30px] z-50 bg-[#171412] text-white px-[26px] h-[52px] rounded-full font-bold text-[14px] tracking-[-0.3px] flex items-center justify-center uppercase"
+    animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
+    whileHover={{ scale: hidden ? 1 : 1.03 }}
+    transition={{ duration: 0.6, delay: hidden ? 0 : 0.2, ease: [0.16, 1, 0.3, 1] as any }}
+    className={`fixed top-[30px] right-[30px] z-50 bg-[#171412] text-white px-[26px] h-[52px] rounded-full font-bold text-[14px] tracking-[-0.3px] flex items-center justify-center uppercase ${hidden ? 'pointer-events-none' : ''}`}
   >
     Book a call now
   </motion.button>
@@ -112,7 +120,7 @@ const FloatingDiscoveryPill = () => (
   </motion.div>
 );
 
-const Footer = () => {
+const Footer = ({ hidden }: { hidden?: boolean }) => {
   const [time, setTime] = useState('1:47 AM');
 
   useEffect(() => {
@@ -122,7 +130,7 @@ const Footer = () => {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
-        timeZone: 'Europe/Paris'
+        timeZone: 'Asia/Kolkata'
       }));
     }, 1000);
     return () => clearInterval(timer);
@@ -132,21 +140,21 @@ const Footer = () => {
     <>
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col"
+        animate={{ opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 1, delay: hidden ? 0 : 1 }}
+        className={`hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col items-center ${hidden ? 'pointer-events-none' : ''}`}
       >
-        <span className="text-[26px] font-black leading-[1] tracking-tight">Brand<br />Apart</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase">FR</span>
+        <span className="text-[14px] font-bold tracking-tight uppercase">MENU</span>
+        <span className="text-[16px] font-bold tracking-[2px] leading-[0.5] mt-1">...</span>
       </motion.div>
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75"
+        animate={{ opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 1, delay: hidden ? 0 : 1 }}
+        className={`hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 ${hidden ? 'pointer-events-none' : ''}`}
       >
-        Paris, France {time}
+        Mumbai, India {time}
       </motion.div>
     </>
   );
@@ -155,6 +163,9 @@ const Footer = () => {
 // --- Main Page ---
 
 export default function LandingPage() {
+  const servicesRef = useRef(null);
+  const isServicesInView = useInView(servicesRef, { margin: "-35% 0px -35% 0px" });
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -174,12 +185,12 @@ export default function LandingPage() {
   return (
     <div className="relative w-full bg-[#F3F0EA] selection:bg-accent selection:text-white overflow-x-hidden">
       {/* UI Elements */}
-      <Logo />
-      <TopRightButton />
-      <FloatingNav />
-      <ScrollIndicator />
-      <Footer />
-      <FloatingDiscoveryPill />
+      <Logo hidden={isServicesInView} />
+      <TopRightButton hidden={isServicesInView} />
+      <FloatingNav hidden={isServicesInView} />
+      <ScrollIndicator hidden={isServicesInView} />
+      <Footer hidden={isServicesInView} />
+      {/* <FloatingDiscoveryPill /> */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-12 pt-20">
@@ -187,46 +198,56 @@ export default function LandingPage() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="relative z-10 flex flex-col items-center text-center max-w-[1400px] w-full"
+          className="relative z-10 flex flex-col items-center text-center max-w-[1400px] w-full -mt-24"
         >
           {/* Main Headline */}
           <motion.h1
             variants={item}
-            className="text-[52px] md:text-[92px] lg:text-[140px] font-black leading-[0.82] tracking-[-2px] md:tracking-[-6px] lg:tracking-[-7px] text-[#171412] max-w-[1200px]"
+            className="font-bold text-[#171412] max-w-[1200px] text-center"
+            style={{
+              fontFamily: 'Youth, Arial, sans-serif',
+              fontSize: 'clamp(3.6em, 7vw, 7em)',
+              fontWeight: 700,
+              lineHeight: 0.8,
+              letterSpacing: '-0.05em',
+              marginTop: 0,
+              marginBottom: 0,
+            }}
           >
-            The design
-            <span className="relative inline-flex items-center ml-2">
-              <span className="absolute -top-[0.1em] md:-top-[0.05em] lg:-top-[0.02em] inline-flex items-center justify-center border-[4px] md:border-[6px] lg:border-[8px] border-accent text-accent rounded-full w-[40px] h-[40px] md:w-[64px] md:h-[64px] lg:w-[92px] lg:h-[92px] text-[20px] md:text-[36px] lg:text-[54px] font-black">
+            The digital
+            <span className="inline-flex items-center ml-1" style={{ verticalAlign: 'baseline', transform: 'translateY(0.05em)' }}>
+              <span 
+                className="inline-flex items-center justify-center border-accent text-accent rounded-full font-bold"
+                style={{
+                  width: '0.75em',
+                  height: '0.75em',
+                  borderWidth: '0.08em',
+                  fontSize: '0.5em',
+                }}
+              >
                 C
               </span>
-              <span className="opacity-0">C</span>
             </span>
             <br />
             partner for top-tier companies
           </motion.h1>
 
-          {/* Trusted Logos */}
-          <motion.div
-            variants={item}
-            className="mt-[42px] flex flex-wrap justify-center items-center gap-[42px] opacity-45 grayscale"
-          >
-            <div className="h-[22px] font-black text-xl tracking-tighter">FORBES</div>
-            <div className="h-[22px] font-black text-xl tracking-tighter italic">PMU</div>
-            <div className="h-[22px] font-black text-xl tracking-tighter">BNP PARIBAS</div>
-            <div className="h-[22px] font-black text-xl tracking-tighter">MISTRAL</div>
-          </motion.div>
+          {/* Trusted Logos removed as requested */}
 
           {/* Supporting Paragraph */}
           <motion.p
             variants={item}
-            className="mt-[80px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.15] tracking-[-1px] text-[#171412] max-w-[780px]"
+            className="mt-[80px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.1] tracking-[-1px] text-[#171412] max-w-[780px]"
           >
-            We help funded startups ship iconic brands, conversion-ready sites, and investor-proof decks.
+            We help funded startups ship iconic<br />
+            apps, conversion-ready sites, and<br />
+            blazing-fast software.
           </motion.p>
 
           {/* Bottom CTA */}
           <motion.div
             variants={item}
+            onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
             className="mt-[36px] flex items-center gap-3 group cursor-pointer"
           >
             <span className="text-[20px] font-bold tracking-tight uppercase border-b-2 border-transparent group-hover:border-black transition-all duration-300">
@@ -249,20 +270,22 @@ export default function LandingPage() {
 
       <FeaturedWorkSection />
       {/* TOP LARGE SHOWCASE CARD */}
-      <ProjectShowcaseCard video="https://player.vimeo.com/video/1112225239?autopause=0&controls=0&loop=1&background=1&app_id=122963" />
+      <ProjectShowcaseCard video="/trb2.mp4" />
 
       {/* 3 CARD EDITORIAL GRID */}
       <EditorialThreeCardGrid />
 
       {/* TOP LARGE SHOWCASE CARD */}
-      <ProjectShowcaseCard image="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2000&auto=format&fit=crop" />
+      <ProjectShowcaseCard image="/image copy.png" />
 
       {/* REVERSED EDITORIAL GRID */}
       <EditorialGridReverse />
 
-      <CircularGallery />
+      <div ref={servicesRef}>
+        <Services />
+      </div>
 
-      <CardFlow />
+      {/* <CardFlow /> */}
 
       <FoundersTestimonials />
 

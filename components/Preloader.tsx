@@ -148,10 +148,10 @@ export default function Preloader() {
       
       <div className="intro-logo">
         <div id="word-1" className="word">
-          <h1>RUPESH</h1>
+          <h1>THE REBIRTH</h1>
         </div>
         <div id="word-2" className="word">
-          <h1>KUMAR</h1>
+          <h1>COMPANY</h1>
         </div>
       </div>
 

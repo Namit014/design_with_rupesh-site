@@ -13,27 +13,7 @@ export default function CinematicZoom() {
   const immersiveBgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-    });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Sync Lenis with ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
 
     const ctx = gsap.context(() => {
       // Set initial state
@@ -90,7 +70,6 @@ export default function CinematicZoom() {
 
     return () => {
       ctx.revert();
-      lenis.destroy();
     };
   }, []);
 
@@ -110,13 +89,16 @@ export default function CinematicZoom() {
         <div className="cinematic-zoom-layout relative flex h-screen items-center justify-center">
           <div
             ref={immersiveFrameRef}
-            className="cinematic-zoom-frame relative overflow-hidden bg-black"
+            className="cinematic-zoom-frame relative overflow-hidden bg-black will-change-transform transform-gpu"
           >
-            <iframe
-              src="https://player.vimeo.com/video/1120758182?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
-              className="absolute inset-0 h-full w-full scale-[1.25] object-cover pointer-events-none"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-view"
+            <video
+              src="/THE REBIRTH COMPANY.mp4"
+              className="absolute inset-0 h-full w-full object-cover pointer-events-none will-change-transform transform-gpu"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
             />
           </div>
         </div>

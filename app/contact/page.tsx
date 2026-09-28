@@ -1,36 +1,20 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Home, Briefcase, Smile, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, Briefcase, Smile, Mail, X, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
 // --- Shared Navigation Components ---
-const Logo = () => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed top-[28px] left-[28px] z-50 group cursor-pointer"
-  >
-    <Link href="/">
-      <div className="relative w-[72px] h-[72px] rounded-full border border-accent/30 flex items-center justify-center bg-[#4F46E5] overflow-hidden">
-        <div className="absolute inset-0 border-[1.5px] border-accent rounded-full scale-95 group-hover:scale-100 transition-transform duration-500" />
-        <span className="text-white font-bold text-xl relative z-10">RK</span>
-      </div>
-    </Link>
-  </motion.div>
-);
-
 const NavButton = ({ icon: Icon, active = false, href }: { icon: any, active?: boolean, href?: string }) => {
   const content = (
     <motion.button
       whileHover={{ y: -3, backgroundColor: 'rgba(23, 20, 18, 0.08)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors ${active ? 'bg-white shadow-sm' : 'bg-white/45 backdrop-blur-[2px]'
+      className={`w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] flex items-center justify-center transition-colors shadow-sm ${active ? 'bg-[#111111] text-white' : 'bg-white border border-[#111111]/10 text-[#111111]/60'
         }`}
     >
-      <Icon size={20} className="md:w-6 md:h-6 text-[#171412]" strokeWidth={1.5} />
+      <Icon size={20} className="md:w-6 md:h-6" strokeWidth={2} />
     </motion.button>
   );
 
@@ -45,7 +29,7 @@ const FloatingNav = () => (
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] as any }}
-    className="fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-50 flex flex-row md:flex-col gap-[12px] md:gap-[14px]"
+    className="fixed left-1/2 -translate-x-1/2 md:left-[36px] md:translate-x-0 bottom-[20px] md:top-1/2 md:-translate-y-1/2 z-[100] flex flex-row md:flex-col gap-[12px] md:gap-[14px]"
   >
     <NavButton icon={Home} href="/" />
     <NavButton icon={Briefcase} href="/showcase" />
@@ -54,216 +38,245 @@ const FloatingNav = () => (
   </motion.div>
 );
 
-const Footer = () => {
-  const [time, setTime] = useState('1:47 AM');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'Europe/Paris'
-      }));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+export default function EditorialContactPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:flex fixed bottom-[26px] left-[32px] z-50 flex-col pointer-events-none"
-      >
-        <span className="text-[26px] font-black leading-[1] tracking-tight text-[#111111]">Brand<br />Apart</span>
-        <span className="text-[16px] font-medium opacity-60 mt-1 uppercase text-[#111111]">FR</span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="hidden md:block fixed bottom-[26px] right-[32px] z-50 text-[16px] font-normal opacity-75 pointer-events-none text-[#111111]"
-      >
-        Paris, France {time}
-      </motion.div>
-    </>
-  );
-};
-
-export default function PremiumContactPage() {
-  return (
-    <div className="min-h-screen w-full bg-[#ececec] flex items-center justify-center p-6 overflow-hidden relative selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen w-full bg-white text-[#111111] overflow-x-hidden selection:bg-[#111111] selection:text-white relative pl-0 md:pl-[120px]">
       {/* UI Elements */}
-      <Logo />
       <FloatingNav />
-      <Footer />
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_40%)] pointer-events-none" />
-
-      <div className="relative z-10 w-full max-w-7xl rounded-[36px] bg-white/70 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.08)] overflow-hidden border border-white grid lg:grid-cols-2">
-        {/* LEFT PANEL */}
-        <div className="relative p-10 lg:p-14 min-h-[700px] overflow-hidden bg-gradient-to-br from-[#fffaf7] via-[#fff2ea] to-[#ff8a3d]">
-          {/* Noise Overlay */}
-          <div className="absolute inset-0 opacity-[0.08] mix-blend-soft-light bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
-          {/* Glow Effect */}
-          <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#ff7a1a]/30 blur-[140px] rounded-full" />
-
-          <div className="relative z-10 h-full flex flex-col justify-between">
-            {/* Center Content */}
-            <div className="max-w-md mx-auto text-center flex flex-col items-center justify-center h-full py-10">
-              <h1 className="text-[#111111] text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight">
-                Let’s Build{' '}
-                <span className="text-[#ff6b00]">Something Great</span>
-              </h1>
-
-              <p className="text-[#666666] text-lg mt-6 leading-relaxed max-w-sm">
-                Tell us about your project and our team will reach out within 24 hours.
-              </p>
-
-              {/* Steps */}
-              <div className="w-full mt-14 space-y-4">
-                <div className="bg-white rounded-[24px] p-5 flex items-center gap-4 shadow-[0_10px_40px_rgba(255,106,0,0.12)] border border-orange-100 transition-all duration-500 hover:scale-[1.02]">
-                  <div className="w-8 h-8 rounded-full bg-[#ff6b00] text-white text-sm flex items-center justify-center font-semibold">
-                    1
-                  </div>
-                  <span className="text-[#111111] font-semibold text-left">
-                    Discuss your idea
-                  </span>
-                </div>
-
-                <div className="bg-white/60 backdrop-blur-xl border border-orange-100 rounded-[24px] p-5 flex items-center gap-4 transition-all duration-500 hover:bg-white hover:translate-x-1">
-                  <div className="w-8 h-8 rounded-full bg-[#f3ebe6] text-[#666666] text-sm flex items-center justify-center font-semibold border border-orange-100">
-                    2
-                  </div>
-                  <span className="text-[#666666] text-left">
-                    Plan the experience
-                  </span>
-                </div>
-
-                <div className="bg-white/60 backdrop-blur-xl border border-orange-100 rounded-[24px] p-5 flex items-center gap-4 transition-all duration-500 hover:bg-white hover:translate-x-1">
-                  <div className="w-8 h-8 rounded-full bg-[#f3ebe6] text-[#666666] text-sm flex items-center justify-center font-semibold border border-orange-100">
-                    3
-                  </div>
-                  <span className="text-[#666666] text-left">
-                    Launch your product
-                  </span>
-                </div>
-              </div>
+      {/* Main Content */}
+      <div className="pt-32 md:pt-48 pb-20 max-w-[1800px] mx-auto w-full relative">
+        
+        {/* Top Header Section */}
+        <div className="px-8 md:px-24 lg:px-32 flex flex-col mb-20 md:mb-32 pr-[350px]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="uppercase text-sm font-bold tracking-widest mb-4">A Question ?</p>
+            <h1 
+              className="text-[12vw] md:text-[8vw] font-black leading-[0.8] tracking-[-0.04em] uppercase" 
+              style={{ fontFamily: "Youth, sans-serif" }}
+            >
+              CONTACT US
+            </h1>
+            
+            <div className="mt-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 text-[#111111]/70 font-medium tracking-wide">
+              <a href="mailto:namit@therebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
+                <Mail size={16} /> namit@therebirth.tech
+              </a>
+              <a href="mailto:built@rebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
+                <Mail size={16} /> built@rebirth.tech
+              </a>
             </div>
 
-            {/* Bottom Line */}
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-orange-200 to-transparent" />
-          </div>
+            <div className="mt-12">
+              <div 
+                onClick={() => setIsModalOpen(true)}
+                className="inline-block border border-[#111111] rounded-full px-8 py-3 text-sm font-bold tracking-widest uppercase hover:bg-[#111111] hover:text-white transition-colors cursor-pointer"
+              >
+                Book a Call
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* RIGHT PANEL */}
-        <div className="relative bg-[#ffffff]/80 backdrop-blur-xl p-10 lg:p-16 flex items-center justify-center">
-          <div className="w-full max-w-lg">
-            <div className="mb-10">
-              <h2 className="text-[#111111] text-5xl font-semibold tracking-tight">
-                Contact Us
+        {/* Floating Circle (Visible on large screens) */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          onClick={() => setIsModalOpen(true)}
+          className="hidden lg:flex absolute right-24 top-40 w-[300px] h-[300px] bg-[#171412] rounded-full flex-col items-center justify-center text-center p-12 text-white hover:scale-105 transition-transform cursor-pointer shadow-2xl"
+        >
+          <p className="text-sm leading-relaxed mb-6 font-medium">Are you a visionary founder and want to know more about our engineering process?</p>
+          <span className="uppercase text-xs font-bold border-b border-white pb-1 tracking-widest">Book A Call</span>
+        </motion.div>
+
+        {/* Bottom Form Section */}
+        <div className="w-full mt-32 flex flex-col border-t border-[#111111]/20">
+          
+          {/* Row 1: Last name */}
+          <div className="w-full border-b border-[#111111]/20 flex">
+            <div className="w-full md:w-1/2"></div>
+            <div className="w-full md:w-1/2">
+              <input 
+                type="text" 
+                placeholder="Last name" 
+                className="w-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+              />
+            </div>
+          </div>
+
+          {/* Row 2: DO YOU HAVE / First name */}
+          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+            <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
+              <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
+                DO YOU HAVE
               </h2>
-
-              <p className="text-[#666666] mt-3 text-lg leading-relaxed">
-                Enter your details and we’ll connect with you.
-              </p>
             </div>
-
-            {/* Action Buttons */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
-              <button className="h-14 rounded-2xl border border-orange-100 bg-white text-[#111111] font-medium transition-all duration-300 hover:border-[#ff6b00] hover:shadow-[0_0_30px_rgba(255,106,0,0.12)]">
-                Email Us
-              </button>
-
-              <button className="h-14 rounded-2xl border border-orange-100 bg-white text-[#111111] font-medium transition-all duration-300 hover:border-[#ff6b00] hover:shadow-[0_0_30px_rgba(255,106,0,0.12)]">
-                Schedule Call
-              </button>
+            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+              <input 
+                type="text" 
+                placeholder="First name" 
+                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+              />
             </div>
+          </div>
 
-            {/* Form */}
-            <form className="space-y-5">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-[#222222] text-sm font-medium block mb-2">
-                    First Name
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="John"
-                    className="w-full h-14 rounded-2xl bg-[#fafafa] border border-[#ececec] px-5 text-[#111111] placeholder:text-[#999999] outline-none transition-all duration-300 focus:border-[#ff6b00] focus:shadow-[0_0_25px_rgba(255,106,0,0.12)]"
-                  />
+          {/* Row 3: A [image] / Email */}
+          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+            <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
+              <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase flex items-center whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
+                A 
+                <div className="inline-block w-[1.8em] h-[0.7em] mx-4 bg-gray-200 overflow-hidden relative top-[-0.05em] align-middle">
+                  <img src="https://i.pinimg.com/1200x/85/cd/51/85cd51c485eaca101419cb3e9eddad3a.jpg" className="w-full h-full object-cover grayscale opacity-80" alt="texture" />
                 </div>
+              </h2>
+            </div>
+            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+              />
+            </div>
+          </div>
 
-                <div>
-                  <label className="text-[#222222] text-sm font-medium block mb-2">
-                    Last Name
-                  </label>
+          {/* Row 4: QUESTION ? / Subject */}
+          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+            <div className="hidden md:flex w-1/2 px-8 md:px-16 lg:px-24 items-center">
+              <h2 className="text-[7vw] lg:text-[4.5vw] font-black leading-[0.85] tracking-tight uppercase whitespace-nowrap" style={{ fontFamily: "Youth, sans-serif" }}>
+                QUESTION ?
+              </h2>
+            </div>
+            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+              <input 
+                type="text" 
+                placeholder="Subject" 
+                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 focus:bg-[#f9f9f9] transition-colors" 
+              />
+            </div>
+          </div>
 
-                  <input
-                    type="text"
-                    placeholder="Doe"
-                    className="w-full h-14 rounded-2xl bg-[#fafafa] border border-[#ececec] px-5 text-[#111111] placeholder:text-[#999999] outline-none transition-all duration-300 focus:border-[#ff6b00] focus:shadow-[0_0_25px_rgba(255,106,0,0.12)]"
-                  />
-                </div>
-              </div>
+          {/* Mobile Text (Visible only on mobile) */}
+          <div className="flex md:hidden w-full p-8 border-b border-[#111111]/20">
+            <h2 className="text-[12vw] font-black leading-[0.85] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
+              DO YOU HAVE<br/>A QUESTION ?
+            </h2>
+          </div>
 
-              <div>
-                <label className="text-[#222222] text-sm font-medium block mb-2">
-                  Email
-                </label>
+          {/* Row 5: Message */}
+          <div className="w-full border-b border-[#111111]/20 flex items-stretch">
+            <div className="hidden md:block w-1/2"></div>
+            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+              <textarea 
+                placeholder="Message" 
+                rows={3}
+                className="w-full h-full bg-transparent py-10 px-8 text-sm md:text-base outline-none text-[#111111] placeholder:text-[#111111]/60 resize-none focus:bg-[#f9f9f9] transition-colors" 
+              />
+            </div>
+          </div>
 
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full h-14 rounded-2xl bg-[#fafafa] border border-[#ececec] px-5 text-[#111111] placeholder:text-[#999999] outline-none transition-all duration-300 focus:border-[#ff6b00] focus:shadow-[0_0_25px_rgba(255,106,0,0.12)]"
-                />
-              </div>
-
-              <div>
-                <label className="text-[#222222] text-sm font-medium block mb-2">
-                  Company
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="Your Company"
-                  className="w-full h-14 rounded-2xl bg-[#fafafa] border border-[#ececec] px-5 text-[#111111] placeholder:text-[#999999] outline-none transition-all duration-300 focus:border-[#ff6b00] focus:shadow-[0_0_25px_rgba(255,106,0,0.12)]"
-                />
-              </div>
-
-              <div>
-                <label className="text-[#222222] text-sm font-medium block mb-2">
-                  Project Details
-                </label>
-
-                <textarea
-                  rows={5}
-                  placeholder="Tell us about your vision..."
-                  className="w-full rounded-2xl bg-[#fafafa] border border-[#ececec] px-5 py-4 text-[#111111] placeholder:text-[#999999] outline-none resize-none transition-all duration-300 focus:border-[#ff6b00] focus:shadow-[0_0_25px_rgba(255,106,0,0.12)]"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full h-16 rounded-2xl bg-[#ff6b00] text-white font-semibold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(255,106,0,0.25)] mt-6"
-              >
-                Send Message
+          {/* Row 6: SEND */}
+          <div className="w-full flex">
+            <div className="hidden md:block w-1/2"></div>
+            <div className="w-full md:w-1/2 border-l border-[#111111]/10">
+              <button className="w-full text-left py-10 px-8 text-sm md:text-base font-bold tracking-[0.2em] uppercase hover:bg-[#111111] hover:text-white transition-colors">
+                SEND
               </button>
-            </form>
-
-            {/* Footer */}
-            <div className="mt-8 text-center text-[#888888] text-sm">
-              We usually respond within a few hours.
             </div>
           </div>
         </div>
       </div>
+
+      {/* --- Booking Modal Overlay --- */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-[#111111]/80 backdrop-blur-md p-4"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-4xl bg-[#F3F0EA] text-[#171412] rounded-[24px] overflow-hidden flex flex-col md:flex-row shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Left Column */}
+              <div className="w-full md:w-1/2 p-8 md:p-14 bg-white/50 border-r border-black/5 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[32px] md:text-[46px] leading-[0.95] tracking-[-2px] font-black uppercase" style={{ fontFamily: 'Youth, sans-serif' }}>
+                    Let's discuss your next big thing.
+                  </h3>
+                  <p className="mt-6 text-[#171412]/60 font-medium text-lg leading-snug">
+                    Select a time to connect directly with our engineering team. We typically respond instantly to confirm your slot.
+                  </p>
+                </div>
+                
+                <div className="mt-12 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                    <img src="https://i.pravatar.cc/100?u=namit" alt="Namit" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-[14px]">Namit Jadhav</div>
+                    <div className="text-[12px] text-[#171412]/60 font-semibold uppercase tracking-widest">Cofounder & CEO</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Form */}
+              <div className="w-full md:w-1/2 p-8 md:p-14 flex flex-col">
+                <h4 className="text-[12px] font-bold tracking-[2px] uppercase mb-8 flex items-center gap-3 text-black/40">
+                  <Calendar size={16} /> Booking Details
+                </h4>
+                
+                <div className="flex flex-col gap-4">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold"
+                  />
+                  <input
+                    type="date"
+                    className="w-full p-4 rounded-xl border border-black/10 bg-white/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black/20 transition-all font-semibold text-black/70"
+                  />
+                </div>
+
+                <button className="mt-10 w-full bg-[#171412] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-[13px] hover:bg-black/80 transition-colors shadow-lg shadow-black/10">
+                  Confirm Booking
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-  )
+  );
 }

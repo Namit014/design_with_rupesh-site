@@ -49,7 +49,7 @@ export default function FeaturedWorkSection() {
             fontFamily: 'PP Neue Montreal, sans-serif',
           }}
         >
-          We create innovative and purposeful designs that not only capture
+          We build innovative and performant web apps that not only capture
           attention but also drive meaningful results.
         </p>
       </motion.div>

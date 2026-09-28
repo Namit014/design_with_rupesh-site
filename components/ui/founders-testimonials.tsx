@@ -16,7 +16,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
     text:
-      "We worked together on branding and product visuals. Everything shipped fast and the collaboration was seamless.",
+      "We worked together on backend and product software. Everything shipped fast and the collaboration was seamless.",
     rotation: "-6deg",
     bg: "#ECE7DE",
     textColor: "#171412",
@@ -28,7 +28,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
     text:
-      "I had the chance to work with Brand Appart on redesign and UI. Their strategic approach goes far beyond visuals.",
+      "I had the chance to work with The Rebirth on web apps and APIs. Their strategic approach goes far beyond software.",
     rotation: "7deg",
     bg: "#A09591",
     textColor: "#F8F3EA",
@@ -40,7 +40,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
     text:
-      "Brand Appart helped us with rebranding and platform identity. The boost in perception was immediate.",
+      "The Rebirth helped us with refactoring and platform stability. The boost in perception was immediate.",
     rotation: "-5deg",
     bg: "#F1EEE8",
     textColor: "#171412",
@@ -52,7 +52,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
     text:
-      "We faced a challenge with positioning and Brand Appart exceeded expectations with clarity and execution.",
+      "We faced a challenge with positioning and The Rebirth exceeded expectations with clarity and execution.",
     rotation: "6deg",
     bg: "#A09591",
     textColor: "#F8F3EA",
@@ -64,7 +64,7 @@ const testimonials = [
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
     text:
-      "Amazing experience with Brand Appart. Professional, responsive, and creative. I couldn’t recommend them more.",
+      "Amazing experience with The Rebirth. Professional, responsive, and technical. I couldn’t recommend them more.",
     rotation: "-4deg",
     bg: "#F1EEE8",
     textColor: "#171412",
@@ -76,17 +76,7 @@ export default function SemiCircularCardAnimation() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      smoothWheel: true,
-    });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
 
     const cards = gsap.utils.toArray<HTMLElement>(".orbit-card");
 
@@ -123,7 +113,6 @@ export default function SemiCircularCardAnimation() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);

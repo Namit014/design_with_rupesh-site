@@ -147,9 +147,9 @@ export default function WaabiScroll() {
 
         <div className="waabi-about-header absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-[45%]">
           <h3 className="text-[clamp(1.5rem,4vw,2.5rem)] font-normal leading-tight tracking-tight" style={{ fontFamily: 'var(--font-gebuk), sans-serif' }}>
-            Design with
+            The Rebirth
             <br />
-            rupesh
+            Company
           </h3>
         </div>
       </section>

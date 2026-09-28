@@ -13,8 +13,8 @@ type ProjectShowcaseCardProps = {
 export default function ProjectShowcaseCard({
   image,
   video,
-  title = "INCARD",
-  year = "FINTECH 2024",
+  title = "YANTRAA.TECH",
+  year = "TECH 2024",
   cta = "DISCOVER CASE",
 }: ProjectShowcaseCardProps) {
   return (
@@ -29,11 +29,13 @@ export default function ProjectShowcaseCard({
         {/* MEDIA */}
         <div className="project-showcase-media absolute inset-0 overflow-hidden">
           {video ? (
-            <iframe
-              src={`${video}&autoplay=1&muted=1&byline=0&title=0&controls=0`}
-              className="absolute inset-0 h-full w-full scale-[1.25] object-cover pointer-events-none"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-view"
+            <video
+              src={video}
+              className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           ) : (
             <motion.img
@@ -47,26 +49,35 @@ export default function ProjectShowcaseCard({
         </div>
 
         <motion.div
-          initial={{ width: 180, height: 48 }}
-          whileHover={{ width: "calc(100% - 2rem)", height: 72 }}
+          initial="rest"
+          whileHover="hover"
+          animate="rest"
+          variants={{
+            rest: { width: "auto", height: 48 },
+            hover: { width: "calc(100% - 2rem)", height: 72 }
+          }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="project-showcase-headline absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
         >
           {/* CONTENT */}
           <div className="relative z-10 flex w-full items-center justify-between">
             <div className="flex items-center gap-3 text-white">
-              <h3
-                className="uppercase"
+              <motion.h3
+                className="uppercase whitespace-nowrap"
+                variants={{
+                  rest: { fontSize: "18px" },
+                  hover: { fontSize: "42px" }
+                }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: "Youth, sans-serif",
-                  fontSize: "42px",
                   lineHeight: "1",
                   letterSpacing: "-2px",
                   fontWeight: 900,
                 }}
               >
                 {title}
-              </h3>
+              </motion.h3>
 
               <span
                 className="uppercase opacity-80"
@@ -81,8 +92,13 @@ export default function ProjectShowcaseCard({
               </span>
             </div>
 
-            <div
-              className="uppercase text-white"
+            <motion.div
+              className="uppercase text-white overflow-hidden whitespace-nowrap"
+              variants={{
+                rest: { opacity: 0, width: 0 },
+                hover: { opacity: 1, width: "auto" }
+              }}
+              transition={{ duration: 0.3 }}
               style={{
                 fontFamily: "PP Neue Montreal, sans-serif",
                 fontSize: "16px",
@@ -91,7 +107,7 @@ export default function ProjectShowcaseCard({
               }}
             >
               {cta}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>
