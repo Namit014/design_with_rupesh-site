@@ -23,9 +23,9 @@ const Logo = ({ hidden }: { hidden?: boolean }) => (
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className={`fixed top-[28px] left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
+    className={`fixed top-[28px] left-[20px] md:left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
   >
-    <div className="text-[26px] font-black leading-[1] tracking-tight text-[#171412]">The Rebirth<br />Company</div>
+    <div className="text-[20px] md:text-[26px] font-black leading-[1] tracking-tight text-[#171412]">The Rebirth<br />Company</div>
   </motion.div>
 );
 
@@ -70,7 +70,7 @@ const ScrollIndicator = ({ hidden }: { hidden?: boolean }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: hidden ? 0 : 1 }}
       transition={{ duration: 1, delay: hidden ? 0 : 0.8 }}
-      className="fixed right-[38px] top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4"
+      className="hidden md:flex fixed right-[38px] top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-4"
     >
       <div className="relative h-[220px] w-[14px]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[220px] bg-black/15" />
