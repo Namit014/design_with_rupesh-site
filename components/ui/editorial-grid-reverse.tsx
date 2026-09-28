@@ -8,118 +8,66 @@ export default function EditorialGridReverse() {
       <div className="editorial-grid-layout mx-auto grid max-w-[1180px] grid-cols-12 gap-4">
 
         {/* LEFT CARD (Large Image) - Swapped from Right */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ y: -4 }}
-          className="editorial-card-media group relative col-span-12 overflow-hidden rounded-[28px] bg-black lg:col-span-6 cursor-pointer"
-        >
-          {/* TOP BAR */}
-          <motion.div
-            initial={{ width: 180, height: 48 }}
-            whileHover={{ width: "calc(100% - 2rem)", height: 72 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
-          >
-            <div className="flex items-center gap-2 text-white">
-              <h3
-                style={{
-                  fontFamily: "Youth, sans-serif",
-                  fontSize: "26px",
-                  lineHeight: 1,
-                  letterSpacing: "-1px",
-                  fontWeight: 900,
-                }}
-              >
-                GENH SITE
-              </h3>
-
-              <span
-                className="uppercase opacity-70"
-                style={{
-                  fontFamily: "PP Neue Montreal, sans-serif",
-                  fontSize: "12px",
-                  lineHeight: 1.1,
-                  letterSpacing: "1px",
-                }}
-              >
-                GOV TECH
-                <br />
-                2026
-              </span>
-            </div>
-          </motion.div>
-
-          {/* IMAGE */}
-          <div className="h-full overflow-hidden">
-            <motion.img
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.8 }}
-              src="/genh-site.png"
-              alt=""
-              className="h-full w-full object-cover"
-            />
+        <div className="col-span-12 flex flex-col gap-2 lg:col-span-6">
+          <div className="flex items-baseline gap-2 pl-2">
+            <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+              GENH SITE
+            </h3>
+            <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+              GOV TECH 2026
+            </span>
           </div>
-        </motion.div>
-
-        {/* RIGHT COLUMN (Two Split Cards) - Swapped from Left */}
-        <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
-          {/* TOP CARD */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
-            className="editorial-card-soft group relative aspect-[1.3/1] overflow-hidden rounded-[28px] bg-[#D7E3D6] cursor-pointer"
+            className="editorial-card-media group relative overflow-hidden rounded-[28px] bg-black cursor-pointer h-full min-h-[300px]"
           >
-            {/* TOP BAR */}
-            <motion.div
-              initial={{ width: 180, height: 48 }}
-              whileHover={{ width: "calc(100% - 2rem)", height: 72 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-4 right-4 top-4 z-20 flex items-center justify-between overflow-hidden rounded-[14px] bg-black/90 px-4 py-3 backdrop-blur-md"
-            >
-              <div className="flex items-center gap-2 text-white">
-                <h3
-                  style={{
-                    fontFamily: "Youth, sans-serif",
-                    fontSize: "22px",
-                    lineHeight: 1,
-                    letterSpacing: "-1px",
-                    fontWeight: 900,
-                  }}
-                >
-                  DEADLOCK STUDIO
-                </h3>
-
-                <span
-                  className="uppercase opacity-70"
-                  style={{
-                    fontFamily: "PP Neue Montreal, sans-serif",
-                    fontSize: "12px",
-                    lineHeight: 1.1,
-                    letterSpacing: "1px",
-                  }}
-                >
-                  STUDIO
-                  <br />
-                  2026
-                </span>
-              </div>
-            </motion.div>
-
             {/* IMAGE */}
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                src="/ChatGPT Image Sep 27, 2026, 10_08_28 PM.png"
-                alt="Zenly"
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+            <div className="absolute inset-0 h-full overflow-hidden">
+              <motion.img
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.8 }}
+                src="/genh-site.png"
+                alt=""
+                className="h-full w-full object-cover"
               />
             </div>
           </motion.div>
+        </div>
+
+        {/* RIGHT COLUMN (Two Split Cards) - Swapped from Left */}
+        <div className="col-span-12 flex flex-col gap-4 lg:col-span-6">
+          {/* TOP CARD */}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-baseline gap-2 pl-2">
+              <h3 className="uppercase text-[#111111] text-[20px] md:text-[26px] font-black tracking-[-1px]" style={{ fontFamily: "Youth, sans-serif" }}>
+                DEADLOCK STUDIO
+              </h3>
+              <span className="uppercase text-[#111111]/50 font-bold text-[12px] tracking-widest">
+                STUDIO 2026
+              </span>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4 }}
+              className="editorial-card-soft group relative aspect-[1.3/1] overflow-hidden rounded-[28px] bg-[#D7E3D6] cursor-pointer"
+            >
+              {/* IMAGE */}
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src="/ChatGPT Image Sep 27, 2026, 10_08_28 PM.png"
+                  alt="Zenly"
+                  className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+                />
+              </div>
+            </motion.div>
+          </div>
 
           {/* TESTIMONIAL CARD */}
           <motion.div
