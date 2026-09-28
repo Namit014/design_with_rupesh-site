@@ -99,12 +99,7 @@ export default function EditorialContactPage() {
         {/* Bottom Form Section */}
         <div className="w-full mt-32 flex flex-col border-t border-[#111111]/20">
           
-          {/* Mobile Text (Visible only on mobile) */}
-          <div className="flex md:hidden w-full py-12 px-8 border-b border-[#111111]/20 bg-[#f9f9f9]">
-            <h2 className="text-[12vw] font-black leading-[0.95] tracking-tight uppercase" style={{ fontFamily: "Youth, sans-serif" }}>
-              DO YOU HAVE<br/>A QUESTION ?
-            </h2>
-          </div>
+
 
           {/* Row 1: Last name */}
           <div className="w-full border-b border-[#111111]/20 flex flex-col md:flex-row">
