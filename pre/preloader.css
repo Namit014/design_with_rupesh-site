@@ -147,6 +147,15 @@
 }
 
 @media (max-width: 1000px) {
+  .loader .word h1 {
+    font-size: 1.1rem;
+  }
+  .loader #word-1 {
+    padding-right: 0.75rem;
+  }
+  .loader #word-2 {
+    padding-left: 0.75rem;
+  }
   .loader .counter .count .digit h1 {
     font-size: 7rem;
   }

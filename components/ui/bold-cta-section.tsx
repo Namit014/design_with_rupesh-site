@@ -20,7 +20,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
 
   return (
     <>
-      <section className="relative w-full min-h-[80vh] md:min-h-screen bg-[#0B0B0B] text-[#F8F8F8] flex flex-col items-center justify-between pt-16 md:pt-24 selection:bg-white selection:text-black overflow-hidden">
+      <section className="relative w-full min-h-[50vh] md:min-h-screen bg-[#0B0B0B] text-[#F8F8F8] flex flex-col items-center justify-between pt-16 md:pt-24 selection:bg-white selection:text-black overflow-hidden">
         {/* --- Top Bar & Copyright --- */}
         <div className="w-full flex flex-col items-center gap-6 z-20">
           <button
