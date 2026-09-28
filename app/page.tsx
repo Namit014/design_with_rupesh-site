@@ -221,8 +221,8 @@ export default function LandingPage() {
             variants={item}
             className="mt-[80px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.1] tracking-[-1px] text-[#171412] max-w-[780px]"
           >
-            We help funded startups ship iconic<br />
-            apps, conversion-ready sites, and<br />
+            We help startups to ship iconic<br />
+            web apps, conversion-ready sites, and<br />
             blazing-fast software.
           </motion.p>
 
@@ -247,8 +247,6 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      {/* Cinematic Animation Section */}
-      <CinematicZoom />
 
       <FeaturedWorkSection />
       {/* TOP LARGE SHOWCASE CARD */}
