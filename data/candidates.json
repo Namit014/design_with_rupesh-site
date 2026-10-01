@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1001",
+    "name": "Jash",
+    "email": "jashthakkar77@gmail.com",
+    "password": "jash@rebirth",
+    "interviewDate": "2026-10-02",
+    "interviewTime": "12:00",
+    "queueNumber": "1",
+    "googleMeetCode": "qii-kqdg-kyk",
+    "createdAt": "2026-10-02T12:00:00.000Z"
+  },
+  {
+    "id": "1002",
+    "name": "Alia",
+    "email": "aliaislam.here42008@gmail.com",
+    "password": "alia@rebirth",
+    "interviewDate": "2026-10-02",
+    "interviewTime": "12:45",
+    "queueNumber": "2",
+    "googleMeetCode": "qii-kqdg-kyk",
+    "createdAt": "2026-10-02T12:00:00.000Z"
+  },
+  {
+    "id": "1003",
+    "name": "Zaid",
+    "email": "zaidsayyed3108@gmail.com",
+    "password": "zaid@rebirth",
+    "interviewDate": "2026-10-02",
+    "interviewTime": "13:30",
+    "queueNumber": "3",
+    "googleMeetCode": "qii-kqdg-kyk",
+    "createdAt": "2026-10-02T12:00:00.000Z"
+  },
+  {
+    "id": "6143",
+    "name": "Namit Jadhav",
+    "email": "namitjadhav1@gmail.com",
+    "password": "Namit@rebirth",
+    "interviewDate": "2026-10-02",
+    "interviewTime": "10:00",
+    "queueNumber": "122",
+    "googleMeetCode": "qii-kqdg-kyk",
+    "createdAt": "2026-10-01T22:57:32.385Z"
+  }
+]

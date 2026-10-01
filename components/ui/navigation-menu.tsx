@@ -3,11 +3,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NavigationMenu() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'main' | 'join' | 'privacy' | 'terms'>('main');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  if (pathname?.startsWith('/teams') || pathname?.startsWith('/admin')) {
+    return null;
+  }
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleJoinSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
