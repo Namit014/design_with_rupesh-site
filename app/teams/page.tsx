@@ -198,7 +198,7 @@ export default function TeamsLoginPage() {
           >
             <div>
               <input 
-                type="text" 
+                type="email" 
                 required 
                 value={identifier} 
                 onChange={(e) => setIdentifier(e.target.value)}
@@ -289,9 +289,8 @@ export default function TeamsLoginPage() {
             className="text-[44px] leading-[1.05] font-normal text-white"
             style={{ letterSpacing: "-0.05em" }}
           >
-            Build Your<br />
-            Future, Build<br />
-            Your Dream
+            Experience Your<br />
+            Next Big Move
           </h1>
 
 
@@ -324,9 +323,8 @@ export default function TeamsLoginPage() {
               className="text-[64px] leading-[1.05] font-normal text-white"
               style={{ letterSpacing: "-0.05em" }}
             >
-              Build Your<br />
-              Future, Build<br />
-              Your Dream
+              Experience Your<br />
+              Next Big Move
             </h1>
 
 

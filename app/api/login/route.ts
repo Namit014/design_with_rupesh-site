@@ -1,16 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'data', 'candidates.json');
-
-function getCandidates() {
-  if (!fs.existsSync(dataFilePath)) {
-    return [];
-  }
-  const data = fs.readFileSync(dataFilePath, 'utf8');
-  return JSON.parse(data || '[]');
-}
+import { getCandidates } from '@/lib/db';
 
 export async function POST(req: Request) {
   try {
@@ -21,18 +10,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Name/Email and password are required' }, { status: 400 });
     }
 
-    const candidates = getCandidates();
+    const candidates = await getCandidates();
     const candidate = candidates.find((c: any) => {
-      if (c.password !== password) return false;
+      const searchEmail = identifier.toLowerCase().trim();
+      const dbEmail = c.email.toLowerCase().trim();
       
-      const searchStr = identifier.toLowerCase().trim();
-      const matchEmail = c.email.toLowerCase() === searchStr;
-      
-      // Very forgiving name match (if they misspell or type part of it)
-      const cName = c.name.toLowerCase();
-      const matchName = cName.includes(searchStr) || searchStr.includes(cName);
-      
-      return matchEmail || matchName;
+      // Must exactly match email and password
+      return dbEmail === searchEmail && c.password === password;
     });
 
     if (!candidate) {

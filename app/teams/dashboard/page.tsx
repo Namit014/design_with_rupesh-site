@@ -90,14 +90,17 @@ export default function CandidateDashboard() {
 
       const windowStart = startTime - (15 * 60 * 1000); // 15 mins before
 
-      // Progress bar logic: fills up over the 2 hours *before* the meeting
-      const countdownWindow = 2 * 60 * 60 * 1000; // 2 hours
-      if (now >= startTime) {
-        progressPercent = 100;
-      } else if (now >= startTime - countdownWindow) {
-        progressPercent = 100 - ((startTime - now) / countdownWindow) * 100;
-      } else {
+      // Progress bar logic: Lobby -> Meeting
+      // To make the line visually work better, we calculate progress from midnight of the interview day up to the start time!
+      const midnight = new Date(startTime);
+      midnight.setHours(0, 0, 0, 0);
+      
+      if (now < midnight.getTime()) {
         progressPercent = 0;
+      } else if (now >= midnight.getTime() && now < startTime) {
+        progressPercent = ((now - midnight.getTime()) / (startTime - midnight.getTime())) * 100;
+      } else {
+        progressPercent = 100;
       }
 
       if (now < windowStart) {

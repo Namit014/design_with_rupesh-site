@@ -1,20 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'data', 'candidates.json');
-
-function getCandidates() {
-  if (!fs.existsSync(dataFilePath)) {
-    return [];
-  }
-  const data = fs.readFileSync(dataFilePath, 'utf8');
-  return JSON.parse(data || '[]');
-}
-
-function saveCandidates(data: any) {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
-}
+import { getCandidates, saveCandidates } from '@/lib/db';
 
 function generatePassword() {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%';
@@ -27,7 +12,7 @@ function generatePassword() {
 
 export async function GET() {
   try {
-    const candidates = getCandidates();
+    const candidates = await getCandidates();
     return NextResponse.json(candidates);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch candidates' }, { status: 500 });
@@ -43,7 +28,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
-    const candidates = getCandidates();
+    const candidates = await getCandidates();
     
     // Check if email already exists
     if (candidates.some((c: any) => c.email.toLowerCase() === email.toLowerCase())) {
@@ -63,7 +48,7 @@ export async function POST(req: Request) {
     };
 
     candidates.push(newCandidate);
-    saveCandidates(candidates);
+    await saveCandidates(candidates);
 
     return NextResponse.json({ message: 'Candidate added successfully', candidate: newCandidate }, { status: 201 });
   } catch (error) {
@@ -80,7 +65,7 @@ export async function PUT(req: Request) {
       return NextResponse.json({ error: 'Candidate ID is required for update' }, { status: 400 });
     }
 
-    const candidates = getCandidates();
+    const candidates = await getCandidates();
     const index = candidates.findIndex((c: any) => c.id === id);
 
     if (index === -1) {
@@ -98,7 +83,7 @@ export async function PUT(req: Request) {
       googleMeetCode: googleMeetCode !== undefined ? googleMeetCode : candidates[index].googleMeetCode,
     };
 
-    saveCandidates(candidates);
+    await saveCandidates(candidates);
     return NextResponse.json({ message: 'Candidate updated successfully', candidate: candidates[index] });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update candidate' }, { status: 500 });
@@ -114,7 +99,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: 'Candidate ID is required' }, { status: 400 });
     }
 
-    const candidates = getCandidates();
+    const candidates = await getCandidates();
     const filtered = candidates.filter((c: any) => c.id !== id);
 
     if (filtered.length === candidates.length) {
