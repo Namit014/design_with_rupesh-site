@@ -23,7 +23,7 @@ const Logo = ({ hidden }: { hidden?: boolean }) => (
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-    className={`absolute md:fixed top-[28px] left-[20px] md:left-[28px] z-50 group cursor-pointer ${hidden ? 'pointer-events-none' : ''}`}
+    className={`absolute md:fixed top-[20px] md:top-[28px] left-[20px] md:left-[28px] z-50 group cursor-pointer flex items-center h-[40px] md:h-auto ${hidden ? 'pointer-events-none' : ''}`}
   >
     <div className="text-[20px] md:text-[26px] font-black leading-[1] tracking-tight text-[#171412]">The Rebirth<br />Company</div>
   </motion.div>
@@ -92,7 +92,7 @@ const TopRightButton = ({ hidden }: { hidden?: boolean }) => (
     animate={{ opacity: hidden ? 0 : 1, y: hidden ? -20 : 0 }}
     whileHover={{ scale: hidden ? 1 : 1.03 }}
     transition={{ duration: 0.6, delay: hidden ? 0 : 0.2, ease: [0.16, 1, 0.3, 1] as any }}
-    className={`fixed top-[30px] right-[30px] z-50 bg-[#171412] text-white px-[26px] h-[52px] rounded-full font-bold text-[14px] tracking-[-0.3px] flex items-center justify-center uppercase ${hidden ? 'pointer-events-none' : ''}`}
+    className={`fixed top-[20px] md:top-[30px] right-[20px] md:right-[30px] z-50 bg-[#171412] text-white px-[16px] md:px-[26px] h-[40px] md:h-[52px] rounded-full font-bold text-[12px] md:text-[14px] tracking-[-0.3px] flex items-center justify-center uppercase ${hidden ? 'pointer-events-none' : ''}`}
   >
     Book a call now
   </motion.button>
@@ -209,7 +209,7 @@ export default function LandingPage() {
               fontFamily: 'Youth, Arial, sans-serif',
               fontSize: 'clamp(3rem, 10vw, 7rem)',
               fontWeight: 700,
-              lineHeight: 0.8,
+              lineHeight: 0.95,
               letterSpacing: '-0.05em',
               marginTop: 0,
               marginBottom: 0,
@@ -233,7 +233,7 @@ export default function LandingPage() {
             className="mt-[60px] md:mt-[100px] lg:mt-[120px] text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[1.3] md:leading-[1.1] tracking-tight md:tracking-[-1px] text-[#171412] max-w-[780px]"
           >
             We help startups to ship iconic <br className="hidden md:block" />
-              web apps, conversion-ready sites, and<br className="hidden md:block" />
+              web apps, conversion-ready sites, and <br className="hidden md:block" />
             blazing-fast software.
           </motion.p>
 

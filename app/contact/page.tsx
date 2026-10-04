@@ -97,11 +97,8 @@ export default function EditorialContactPage() {
             </h1>
             
             <div className="mt-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 text-[#111111]/70 font-medium tracking-wide">
-              <a href="mailto:namit@therebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
-                <Mail size={16} />namit@therebirth.tech
-              </a>
-              <a href="mailto:built@rebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
-                <Mail size={16} />built@rebirth.tech
+              <a href="mailto:built@therebirth.tech" className="flex items-center gap-2 hover:text-[#111111] transition-colors">
+                <Mail size={16} />built@therebirth.tech
               </a>
             </div>
 
@@ -259,10 +256,10 @@ export default function EditorialContactPage() {
                 
                 <div className="mt-8 md:mt-12 flex items-center gap-4 hidden md:flex">
                   <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
-                    <img src="https://i.pravatar.cc/100?u=namit" alt="Namit" className="w-full h-full object-cover" />
+                    <img src="https://i.pravatar.cc/100?u=jeremy" alt="Jeremy" className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <div className="font-bold text-[14px]">Namit Jadhav</div>
+                    <div className="font-bold text-[14px]">Jeremy</div>
                     <div className="text-[12px] text-[#171412]/60 font-semibold uppercase tracking-widest">Cofounder & CEO</div>
                   </div>
                 </div>

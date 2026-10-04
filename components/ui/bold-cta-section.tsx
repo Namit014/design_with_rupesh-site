@@ -137,7 +137,7 @@ export default function BoldCtaSection({}: BoldCtaSectionProps) {
                     <img src="https://i.pravatar.cc/100?u=jeremy" alt="Jeremy" className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <div className="font-bold text-[14px]">Namit</div>
+                    <div className="font-bold text-[14px]">Jeremy</div>
                     <div className="text-[12px] text-[#171412]/60 font-semibold uppercase tracking-widest">Lead Engineer</div>
                   </div>
                 </div>

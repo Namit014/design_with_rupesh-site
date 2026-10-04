@@ -1,16 +1,16 @@
 [
   {
     "type": "Booking",
-    "name": "Namit Jadhav",
-    "email": "namitjadhav1@gmail.com",
+    "name": "Jeremy",
+    "email": "jeremy@example.com",
     "phone": "09372938951",
     "date": "2026-09-30",
     "timestamp": "2026-09-28T19:56:14.605Z"
   },
   {
     "type": "Booking",
-    "name": "Namit Jadhav",
-    "email": "namitjadhav1@gmail.com",
+    "name": "Jeremy",
+    "email": "jeremy@example.com",
     "phone": "09372938951",
     "date": "2026-09-18",
     "timestamp": "2026-09-28T20:00:37.795Z"
